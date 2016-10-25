@@ -10,27 +10,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="git是一个神奇的存在，将git有关命令记录如下。
 git入门命令安装git
-1sudo apt-get install git
-配置git信息12git config --global user.name &amp;quot;waverley&amp;quot;git config --global user.email &amp;quot;XXX&amp;quot;
-初始化一个项目,所有文件都在目录waverley之下123">
+1sudo apt-get install git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git入门手册">
 <meta property="og:url" content="http://waverley.me/2016/10/25/git入门手册/index.html">
 <meta property="og:site_name" content="Waverley的博客">
 <meta property="og:description" content="git是一个神奇的存在，将git有关命令记录如下。
 git入门命令安装git
-1sudo apt-get install git
-配置git信息12git config --global user.name &amp;quot;waverley&amp;quot;git config --global user.email &amp;quot;XXX&amp;quot;
-初始化一个项目,所有文件都在目录waverley之下123">
+1sudo apt-get install git">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/061510341401056.png">
-<meta property="og:updated_time" content="2016-10-25T15:16:59.000Z">
+<meta property="og:updated_time" content="2016-10-25T15:19:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git入门手册">
 <meta name="twitter:description" content="git是一个神奇的存在，将git有关命令记录如下。
 git入门命令安装git
-1sudo apt-get install git
-配置git信息12git config --global user.name &amp;quot;waverley&amp;quot;git config --global user.email &amp;quot;XXX&amp;quot;
-初始化一个项目,所有文件都在目录waverley之下123">
+1sudo apt-get install git">
 <meta name="twitter:image" content="http://waverley.me/assets/blogImg/061510341401056.png">
   
     <link rel="alternative" href="/atom.xml" title="Waverley的博客" type="application/atom+xml">
@@ -173,9 +167,9 @@ git入门命令安装git
         <p>git是一个神奇的存在，将git有关命令记录如下。</p>
 <h2 id="git入门命令"><a href="#git入门命令" class="headerlink" title="git入门命令"></a>git入门命令</h2><p>安装git</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>配置git信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;waverley&quot;</div><div class="line">git config --global user.email &quot;XXX&quot;</div></pre></td></tr></table></figure></p>
 <p>初始化一个项目,所有文件都在目录waverley之下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#你可以计划改动(把它们添加到缓存区),使用如下命令:</div><div class="line">git add waverley</div><div class="line">git add *</div><div class="line">git rm file</div><div class="line">git rm -r dir</div><div class="line">#这是 git 基本工作流程的第一步;使用如下命令以实际提交改动:</div><div class="line">git commit -m &quot;代码提交信息&quot;</div><div class="line">#现在,你的改动已经提交到了 HEAD,但是还没到你的远端仓库。</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>检查都做了哪些修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git diff  #只能查到git add之前的修改文件</div><div class="line">git diff --cached  #可以查到git commit之前的文件</div><div class="line">git status #查看git commit之前都有哪些文件发生了改动</div></pre></td></tr></table></figure></p>
 <p>查看提交日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -p #可以查看详细的日志</div></pre></td></tr></table></figure></p>
 <p>查看操作记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reflog</div></pre></td></tr></table></figure></p>
