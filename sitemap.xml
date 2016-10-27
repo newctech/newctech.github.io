@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.waverley.me/tags/index.html</loc>
+    
+    <lastmod>2016-10-27T18:15:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.waverley.me/categories/index.html</loc>
+    
+    <lastmod>2016-10-27T18:14:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.waverley.me/2016/10/26/Git%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/</loc>
     
     <lastmod>2016-10-27T18:10:18.000Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>http://www.waverley.me/about/index.html</loc>
     
     <lastmod>2016-10-27T18:09:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.waverley.me/categories/index.html</loc>
-    
-    <lastmod>2016-10-27T18:08:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.waverley.me/tags/index.html</loc>
-    
-    <lastmod>2016-10-27T18:08:20.000Z</lastmod>
     
   </url>
   
