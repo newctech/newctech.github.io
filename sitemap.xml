@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.waverley.me/categories/index.html</loc>
+    
+    <lastmod>2016-10-27T17:38:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.waverley.me/schedule/index.html</loc>
     
     <lastmod>2016-10-27T17:35:13.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://www.waverley.me/about/index.html</loc>
     
     <lastmod>2016-10-27T17:34:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.waverley.me/cateories/index.html</loc>
-    
-    <lastmod>2016-10-27T17:34:10.000Z</lastmod>
     
   </url>
   
