@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Waverley</title>
+  <subtitle>风一样的程序员</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.waverley.me/"/>
+  <updated>2016-10-29T15:17:55.000Z</updated>
+  <id>http://www.waverley.me/</id>
+  
+  <author>
+    <name>威风凛凛</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git入门手册</title>
+    <link href="http://www.waverley.me/2016/10/26/Git%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/"/>
+    <id>http://www.waverley.me/2016/10/26/Git入门手册/</id>
+    <published>2016-10-26T06:40:00.000Z</published>
+    <updated>2016-10-29T15:17:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center">同生活中的许多伟大事件一样，Git 诞生于一个极富纷争大举创新的年代。</blockquote>
+
+<p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。<br>Git是目前世界上最先进的分布式版本控制系统（没有之一），将Git有关命令记录如下。</p>
+<p>安装git</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>配置git信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;waverley&quot;</div><div class="line">git config --global user.email &quot;XXX&quot;</div></pre></td></tr></table></figure></p>
+<p>初始化一个项目,所有文件都在目录waverley之下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#你可以计划改动(把它们添加到缓存区),使用如下命令:</div><div class="line">git add waverley</div><div class="line">git add *</div><div class="line">git rm file</div><div class="line">git rm -r dir</div><div class="line">#这是 git 基本工作流程的第一步;使用如下命令以实际提交改动:</div><div class="line">git commit -m &quot;代码提交信息&quot;</div><div class="line">#现在,你的改动已经提交到了 HEAD,但是还没到你的远端仓库。</div></pre></td></tr></table></figure></p>
+<p>检查都做了哪些修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git diff  #只能查到git add之前的修改文件</div><div class="line">git diff --cached  #可以查到git commit之前的文件</div><div class="line">git status #查看git commit之前都有哪些文件发生了改动</div></pre></td></tr></table></figure></p>
+<p>查看提交日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -p #可以查看详细的日志</div></pre></td></tr></table></figure></p>
+<p>查看操作记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reflog</div></pre></td></tr></table></figure></p>
+<p>创建并管理分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch waverley #创建一个叫waverley的分支</div><div class="line">git branch #显示当前都有哪些分支,其中标注*为当前所在分支</div><div class="line">git checkout waverley #将当前分支转移到 waverley 分支</div><div class="line">git commit -a #提交分支</div><div class="line">git merge waverley #将waverley合并到主分支</div></pre></td></tr></table></figure></p>
+<p>克隆一个远程仓库到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone  remote_path  local_path</div></pre></td></tr></table></figure></p>
+<p>推送改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#你的改动现在已经在本地仓库的 HEAD中了。执行如下命令以将这些改动提交到远端仓库:</div><div class="line">git push origin master</div><div class="line">#可以把 master 换成你想要推送的任何分支。如果你还没有克隆现有仓库,并欲将你的仓库连接到某个远程服务器,你可以使用如下命令添加:</div><div class="line">git remote add origin &lt;server&gt;;</div><div class="line">#如此你就能够将你的改动推送到所添加的服务器上去了。</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候,master是“默认的”。在其他分支上进行开发,完成后再将它们合并到主分支上。创建一个叫做“feature_x”的分支,并切换过去:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature_x</div></pre></td></tr></table></figure></p>
+<p>切换回主分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout master</div></pre></td></tr></table></figure></p>
+<p>再把新建的分支删掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d feature_x</div></pre></td></tr></table></figure></p>
+<p>除非你将分支推送到远端仓库，不然该分支就是不为他人所见的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2><p>要更新你的本地仓库至最新改动，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull</div></pre></td></tr></table></figure></p>
+<p>相当于在你的工作目录中，获取(fetch) 并 合并(merge) 远端的改动。<br>要合并其他分支到你的当前分支(例如 master),执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge</div></pre></td></tr></table></figure></p>
+<p>这两种情况下,git 都会尝试去自动合并改动。不幸的是,自动合并并非次次都能成功,并可能导致冲突(conflicts)。 这时候就需要你修改这些文件来人肉合并这些冲突了。改完之后,你需要执行如下命令以将它们标记为合并成功:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add</div></pre></td></tr></table></figure></p>
+<p>在合并改动之前,也可以使用如下命令查看:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在软件发布时创建标签,是被推荐的。这是个旧有概念,在SVN中也有。可以执行如下命令以创建一个叫做 1.0.0 的标签:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag 1.0.0 1b2e1d63ff</div></pre></td></tr></table></figure></p>
+<p>1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符。使用如下命令获取提交 ID:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log</div></pre></td></tr></table></figure></p>
+<p>你也可以用该提交 ID 的少一些的前几位,只要它是唯一的。</p>
+<hr>
+<h2 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h2><p>回退本地修改<br>假如你做错事(自然,这是不可能的),你可以使用如下命令替换掉本地改动:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout --</div></pre></td></tr></table></figure></p>
+<p>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件;已添加到缓存区的改动,以及新文件,都不受影响。</p>
+<p>回退远端修改<br>假如你想要丢弃你所有的本地改动与提交,可以到服务器上获取最新的版本并将你本地主分支指向到它:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git fetch origin</div><div class="line">git reset --hard origin/master</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>git是一个很好的版本管理工具，将常用命令总结如下图：</p>
+<p><img src="http://waverley.me/assets/blogImg/061510341401056.png" alt="此处输入图片的描述"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;同生活中的许多伟大事件一样，Git 诞生于一个极富纷争大举创新的年代。&lt;/blockquote&gt;
+
+&lt;p&gt;Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。&lt;br&gt;Git是目前世界上最先进的分布式版本控制系统（没有之一），将Git有关命令记录如下。&lt;/p&gt;
+&lt;p&gt;安装git&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo apt-get install git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="手册速查" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
+    
+    
+      <category term="Git" scheme="http://www.waverley.me/tags/Git/"/>
+    
+      <category term="手册" scheme="http://www.waverley.me/tags/%E6%89%8B%E5%86%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://www.waverley.me/2016/10/25/hello-world/"/>
+    <id>http://www.waverley.me/2016/10/25/hello-world/</id>
+    <published>2016-10-25T15:55:00.000Z</published>
+    <updated>2016-10-29T15:08:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>Hello World</p>
+</blockquote>
+<p>  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。<br>hexo+github+coding+markdown的方式使用起来也很方便，还申请了自己的域名waverley.me。</p>
+<p>现在，我终于可以大声说：Hello World !</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;Hello World&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。&lt;br&gt;hexo+github+coding+markdown的方
+    
+    </summary>
+    
+      <category term="闲聊" scheme="http://www.waverley.me/categories/%E9%97%B2%E8%81%8A/"/>
+    
+    
+      <category term="闲聊" scheme="http://www.waverley.me/tags/%E9%97%B2%E8%81%8A/"/>
+    
+  </entry>
+  
+</feed>
