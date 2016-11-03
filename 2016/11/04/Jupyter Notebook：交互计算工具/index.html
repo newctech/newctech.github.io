@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://waverley.me/assets/blogImg/jupyter5.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/jupyter6.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/jupyter7.png">
-<meta property="og:updated_time" content="2016-11-03T16:42:08.000Z">
+<meta property="og:updated_time" content="2016-11-03T16:43:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jupyter Notebook：交互计算工具">
 <meta name="twitter:description" content="Jupyter Notebook，一个web界面的vim+跨平台+即时运行结果的强大online编辑器。">
@@ -412,7 +412,7 @@
 <p>3、运行命令，启动Jupyter Notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure></p>
 <p>运行上面的命令之后，你将看到类似下面这样的输出：<br><img src="http://waverley.me/assets/blogImg/jupyter1.png" alt="此处输入图片的描述"></p>
 <blockquote>
-<p>启动jupyter notebook后默认监听于本地8888，如果想外部访问也很简单jupyternotebook–ip=x.x.x.x<br>这样，任何知道 notebook 地址的人都可以连接到 notebook 进行远程使用。</p>
+<p>启动jupyter notebook后默认监听于本地8888，如果想外部访问也很简单jupyternotebook–ip=x.x.x.x 这样，任何知道 notebook 地址的人都可以连接到 notebook 进行远程使用。</p>
 </blockquote>
 <h2 id="二、使用Jupyter-Notebook"><a href="#二、使用Jupyter-Notebook" class="headerlink" title="二、使用Jupyter Notebook"></a>二、使用Jupyter Notebook</h2><p>会在你开启 notebook 的文件夹中启动 Jupyter 主界面，如下：<br><img src="http://waverley.me/assets/blogImg/jupyter2.png" alt="此处输入图片的描述"><br>如果想新建一个 notebook，只需要点击New，选择你希望启动的 notebook 类型即可（这里我只安装了一个python内核）；<br><img src="http://waverley.me/assets/blogImg/jupyter3.png" alt="此处输入图片的描述"><br>在新打开的标签页中，我们会看到 notebook 界面，目前里面什么也没有：<br><img src="http://waverley.me/assets/blogImg/jupyter4.png" alt="此处输入图片的描述"><br>下方截图中看到的是一个代码单元格（code cell），以[ ]开头。在这种类型的单元格中，可以输入任意代码并执行，类似一个在线的Python交互界面。例如，输入1 + 2并按下Shift + Enter；之后，单元格中的代码就会被计算，光标也会被移动动一个新的单元格中，你会得到如下结果：<br><img src="http://waverley.me/assets/blogImg/jupyter5.png" alt="此处输入图片的描述"><br>再次输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(&quot;Hello Jupyter!&quot;)</div></pre></td></tr></table></figure></p>
 <p>得到下图结果，但这次没有出现类似Out<a href="https://jupyter.org/" target="_blank" rel="external">2</a>这样的文字。这是因为我们将结果打印出来了，没有返回任何的值：<br><img src="http://waverley.me/assets/blogImg/jupyter6.png" alt="此处输入图片的描述"></p>
