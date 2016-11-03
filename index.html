@@ -298,6 +298,154 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/04/Jupyter Notebook：交互计算工具/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T00:33:36+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/04/Jupyter Notebook：交互计算工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/Jupyter Notebook：交互计算工具/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/04/Jupyter Notebook：交互计算工具/" class="leancloud_visitors" data-flag-title="">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Jupyter-Notebook：交互计算工具"><a href="#Jupyter-Notebook：交互计算工具" class="headerlink" title="Jupyter Notebook：交互计算工具"></a>Jupyter Notebook：交互计算工具</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<p>Jupyter Notebook，一个web界面的vim+跨平台+即时运行结果的编辑器</p>
+<p><img src="http://waverley.me/assets/blogImg/jupyterpreview.png" alt="此处输入图片的描述"></p>
+<blockquote>
+<p><a href="https://jupyter.org/" target="_blank" rel="external">Jupyter Notebook</a>（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言如Python, R, Julia and Scala。Jupyter Notebook是一个基于WEB的程序，可以用于数据清洗和转换，数值模拟，统计建模，机器学习，数据科学等。</p>
+</blockquote>
+<ul>
+<li>支持运行 超过40种编程语言，如Python, R, Julia and Scala</li>
+<li>可用多种方式进行分享，如email, Dropbox, GitHub and the <a href="http://nbviewer.jupyter.org/" target="_blank" rel="external">Jupyter Notebook Viewer</a></li>
+<li>可产生丰富的输出，并可以进行可视化实时操作，如图像, 视频, LaTeX, and JavaScript</li>
+<li>使用大数据工具Apache Spark，pandas, scikit-learn, ggplot2, dplyr等<br><img src="http://waverley.me/assets/blogImg/jupyter0.png" alt="此处输入图片的描述"></li>
+</ul>
+<h2 id="一、安装Jupyter-Notebook"><a href="#一、安装Jupyter-Notebook" class="headerlink" title="一、安装Jupyter Notebook"></a>一、安装Jupyter Notebook</h2><p>Jupyter可以运行多种编程语言，然而Jupyter Notebook的安装依赖于Python（Python 2.7，Python 3.3或更高）。<br>官方推荐用 <a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a> 进行Python和Jupyter的安装。<br>1、下载相应平台的<a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a>并按指示进行安装；<br>2、运行一下命令，启动Jupyter Notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure></p>
+<p>对于Python用户，也可用pip进行Jupyter Notebook 的安装<br>1、更新pip到最新版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --upgrade pip</div></pre></td></tr></table></figure></p>
+<p>2、使用如下命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install jupyter</div></pre></td></tr></table></figure></p>
+<p>3、运行命令，启动Jupyter Notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure></p>
+<p>运行上面的命令之后，你将看到类似下面这样的输出：<br><img src="http://waverley.me/assets/blogImg/jupyter1.png" alt="此处输入图片的描述"></p>
+<blockquote>
+<p>启动jupyter notebook后默认监听于本地8888，如果想外部访问也很简单jupyternotebook–ip=x.x.x.x<br>这样，任何知道 notebook 地址的人都可以连接到 notebook 进行远程使用。</p>
+</blockquote>
+<h2 id="二、使用Jupyter-Notebook"><a href="#二、使用Jupyter-Notebook" class="headerlink" title="二、使用Jupyter Notebook"></a>二、使用Jupyter Notebook</h2><p>会在你开启 notebook 的文件夹中启动 Jupyter 主界面，如下：<br><img src="http://waverley.me/assets/blogImg/jupyter2.png" alt="此处输入图片的描述"><br>如果想新建一个 notebook，只需要点击New，选择你希望启动的 notebook 类型即可（这里我只安装了一个python内核）；<br><img src="http://waverley.me/assets/blogImg/jupyter3.png" alt="此处输入图片的描述"><br>在新打开的标签页中，我们会看到 notebook 界面，目前里面什么也没有：<br><img src="http://waverley.me/assets/blogImg/jupyter4.png" alt="此处输入图片的描述"><br>下方截图中看到的是一个代码单元格（code cell），以[ ]开头。在这种类型的单元格中，可以输入任意代码并执行，类似一个在线的Python交互界面。例如，输入1 + 2并按下Shift + Enter；之后，单元格中的代码就会被计算，光标也会被移动动一个新的单元格中，你会得到如下结果：<br><img src="http://waverley.me/assets/blogImg/jupyter5.png" alt="此处输入图片的描述"><br>再次输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(&quot;Hello Jupyter!&quot;)</div></pre></td></tr></table></figure></p>
+<p>得到下图结果，但这次没有出现类似Out<a href="https://jupyter.org/" target="_blank" rel="external">2</a>这样的文字。这是因为我们将结果打印出来了，没有返回任何的值：<br><img src="http://waverley.me/assets/blogImg/jupyter6.png" alt="此处输入图片的描述"></p>
+<blockquote>
+<p>notebook 有一个非常有趣的特性，就是可以修改之前的单元格，对其重新计算，这样就可以更新整个文档了。试着把光标移回第一个单元格，并将1 + 2修改成2 + 3，然后按下Shift + Enter重新计算该单元格。你会发现结果马上就更新成了 5。如果你不想重新运行整个脚本，只想用不同的参数测试某个程式的话，这个特性显得尤其强大。不过，你也可以重新计算整个 notebook，只要点击Cell -&gt; Run all即可。</p>
+</blockquote>
+<p>Jupyter Notebook的功能显然不止这些，还支持Markdown、LaTex 语法等，可用来编辑在线文档；</p>
+<h2 id="三、导出功能"><a href="#三、导出功能" class="headerlink" title="三、导出功能"></a>三、导出功能</h2><p>Jupyter Notebook还有一个强大的特性，就是其导出功能。可以将 notebook 导出为多种格式：</p>
+<ul>
+<li>HTML</li>
+<li>Markdown</li>
+<li>ReST</li>
+<li>PDF（通过 LaTeX）</li>
+<li>Raw Python</li>
+</ul>
+<blockquote>
+<p>导出 PDF 功能，可以让你不用写 LaTex 即可创建漂亮的 PDF 文档。你还可以将 notebook 作为网页发布在你的网站上。甚至，你可以导出为 ReST 格式，作为软件库的文档。</p>
+</blockquote>
+<h2 id="四、Notebook-Widgets"><a href="#四、Notebook-Widgets" class="headerlink" title="四、Notebook Widgets"></a>四、Notebook Widgets</h2><p>Jupyter Notebook集成了多种部件，如gmaps，Matplotlib等<br>Gmaps是一个数据可视化工具，是Jupyter Notebook的一个嵌入了Google Maps的插件。这里我们才刚刚进入正题：敬请关注《Gmaps:轻松集成Google Maps的Jupyter Notebook插件》<br>先贴一张图：<br><img src="http://waverley.me/assets/blogImg/jupyter7.png" alt="此处输入图片的描述"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/26/Git入门手册/" itemprop="url">
                   Git入门手册
                 </a>
@@ -597,7 +745,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
