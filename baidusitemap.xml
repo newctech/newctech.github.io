@@ -4,8 +4,35 @@
 
     
   <url>
+    <loc>http://www.waverley.me/2016/11/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2016-12-20T16:40:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jupyter Notebook：交互计算工具</title>
+        <pubTime>2016-11-03T16:40:00.000Z</pubTime>
+        
+        <tag>手册</tag>
+         
+        <tag>Jupyter Notebook</tag>
+         
+        <tag>工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+             
+              <breadCrumb title="手册速查" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.waverley.me/2016/12/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2016-12-20T16:32:52.000Z</lastmod>
+    <lastmod>2016-12-20T16:39:52.000Z</lastmod>
     <data>
         <display>
         <title>Gmaps:轻松集成Google Maps的Jupyter Notebook插件</title>
@@ -32,33 +59,6 @@
     </url>
 
     
-  <url>
-    <loc>http://www.waverley.me/2016/11/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2016-11-03T16:43:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Jupyter Notebook：交互计算工具</title>
-        <pubTime>2016-11-03T16:40:00.000Z</pubTime>
-        
-        <tag>Jupyter Notebook</tag>
-         
-        <tag>工具</tag>
-         
-        <tag>手册</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术总结" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
-          
-             
-              <breadCrumb title="手册速查" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
     
   <url>
     <loc>http://www.waverley.me/2016/10/26/Git%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/</loc>
@@ -68,9 +68,9 @@
         <title>Git入门手册</title>
         <pubTime>2016-10-26T06:40:00.000Z</pubTime>
         
-        <tag>手册</tag>
-         
         <tag>Git</tag>
+         
+        <tag>手册</tag>
          
          
            
