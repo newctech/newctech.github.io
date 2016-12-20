@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="闲聊," />
+  <meta name="keywords" content="Jupyter Notebook,工具,Gmaps,热力图heatmap," />
 
 
 
@@ -90,25 +90,35 @@
 
 
 
-<meta name="description" content="Hello World
+<meta name="description" content="Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个强大的数据可视化工具.
 
-  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。hexo+github+coding+markdown的方式使用起来也很方便，还申请了自己的域名waverley.me。
-现在，我终于可以大声说：Hello World !">
+
+
+Gmaps可以让你很简单地调用Google Maps，本文将简单介绍Gmaps的入门知识,以及有关热力图的绘制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://www.waverley.me/2016/10/25/hello-world/index.html">
+<meta property="og:title" content="Gmaps:轻松集成Google Maps的Jupyter Notebook插件">
+<meta property="og:url" content="http://www.waverley.me/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="Hello World
+<meta property="og:description" content="Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个强大的数据可视化工具.
 
-  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。hexo+github+coding+markdown的方式使用起来也很方便，还申请了自己的域名waverley.me。
-现在，我终于可以大声说：Hello World !">
-<meta property="og:updated_time" content="2016-10-29T15:08:03.000Z">
+
+
+Gmaps可以让你很简单地调用Google Maps，本文将简单介绍Gmaps的入门知识,以及有关热力图的绘制。">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps1.png">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps2.png">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps3.png">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps4.png">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps5.png">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/gmaps6.png">
+<meta property="og:updated_time" content="2016-12-20T16:32:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Hello World
+<meta name="twitter:title" content="Gmaps:轻松集成Google Maps的Jupyter Notebook插件">
+<meta name="twitter:description" content="Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个强大的数据可视化工具.
 
-  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。hexo+github+coding+markdown的方式使用起来也很方便，还申请了自己的域名waverley.me。
-现在，我终于可以大声说：Hello World !">
+
+
+Gmaps可以让你很简单地调用Google Maps，本文将简单介绍Gmaps的入门知识,以及有关热力图的绘制。">
+<meta name="twitter:image" content="http://waverley.me/assets/blogImg/gmaps1.png">
 
 
 
@@ -129,10 +139,10 @@
 
 
 
-  <link rel="canonical" href="http://www.waverley.me/2016/10/25/hello-world/"/>
+  <link rel="canonical" href="http://www.waverley.me/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/"/>
 
 
-  <title> Hello World | Waverley </title>
+  <title> Gmaps:轻松集成Google Maps的Jupyter Notebook插件 | Waverley </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -305,7 +315,7 @@
             
             
               
-                Hello World
+                Gmaps:轻松集成Google Maps的Jupyter Notebook插件
               
             
           </h1>
@@ -317,8 +327,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-25T23:55:00+08:00" content="2016-10-25">
-              2016-10-25
+            <time itemprop="dateCreated" datetime="2016-12-21T00:30:00+08:00" content="2016-12-21">
+              2016-12-21
             </time>
           </span>
 
@@ -331,8 +341,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/闲聊/" itemprop="url" rel="index">
-                    <span itemprop="name">闲聊</span>
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/手册速查/" itemprop="url" rel="index">
+                    <span itemprop="name">手册速查</span>
                   </a>
                 </span>
 
@@ -347,8 +369,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/25/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -358,7 +380,7 @@
 
           
           
-             <span id="/2016/10/25/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/" class="leancloud_visitors" data-flag-title="Gmaps:轻松集成Google Maps的Jupyter Notebook插件">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,10 +402,57 @@
       
 
       
-        <blockquote class="blockquote-center"><p>Hello World</p>
+        <blockquote class="blockquote-center">Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个强大的数据可视化工具.</blockquote>
+
+
+<blockquote>
+<p>Gmaps可以让你很简单地调用Google Maps，本文将简单介绍Gmaps的入门知识,以及有关热力图的绘制。<br><a id="more"></a></p>
 </blockquote>
-<p>  花了两天时间搭建了个博客，也算是有了一个属于自己的私有空间了。<br>hexo+github+coding+markdown的方式使用起来也很方便，还申请了自己的域名waverley.me。</p>
-<p>现在，我终于可以大声说：Hello World !</p>
+<p><strong>安装</strong></p>
+<ol>
+<li><p>最新版本的Gmaps需要升级你的IPython到4.2及以上版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install -U jupyter</div></pre></td></tr></table></figure>
+</li>
+<li><p>用pip命令进行模块安装，并使jupyter加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install gmaps</div><div class="line">jupyter nbextension enable --py gmaps</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>申请API Key</strong></p>
+<ol>
+<li><p>要通过Google Maps的认证，你首先需要申请一个API Key，<a href="https://console.developers.google.com/projectselector/apis/api/static_maps_backend/overview" target="_blank" rel="external">申请连接</a>。进入申请界面，创建工程，然后点击<em>凭证</em>，选择<em>API密钥</em>，如下图<img src="http://waverley.me/assets/blogImg/gmaps1.png" alt="此处输入图片的描述"></p>
+</li>
+<li><p>获取API Key之后，通过如下函数来进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gmaps.configure(api_key=&quot;AI...&quot;)</div></pre></td></tr></table></figure>
+<p>或者，通过环境变量来进行设置（文件 ~/.profile 或 ~/.bashrc）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export GOOGLE_API_KEY=AI...</div></pre></td></tr></table></figure>
+<p>然后，在jupyter中通过如下方式使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import gmaps</div><div class="line">gmaps.configure(api_key=os.environ[&quot;GOOGLE_API_KEY&quot;])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样，Maps和图层就可以通过你的API key来进行认证；</p>
+<p><strong>开始使用</strong><br>Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个数据可视化工具。<br>首先，让我们来画一个地震分布图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line"></div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;) # Fill in with your API key</div><div class="line"></div><div class="line">earthquake_data = gmaps.datasets.load_dataset(&quot;earthquakes&quot;)</div><div class="line"></div><div class="line">print(earthquake_data[:4]) # first four rows</div><div class="line"></div><div class="line">#在Google Mpas上画出地震分布图</div><div class="line">m = gmaps.Map()</div><div class="line">m.add_layer(gmaps.WeightedHeatmap(data=earthquake_data))</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><img src="http://waverley.me/assets/blogImg/gmaps2.png" alt="此处输入图片的描述"><br>这是一个完整的Google Maps，你可以放大缩小、卫星视图、街景等，并且热力图将会自适应。</p>
+<p><strong>基本原理</strong><br>gmaps是在原生Google Maps上添加一个图层；当你创建一个基本地图后，然后你可以在地图上增加一个新的图层，例如热力图层：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line"># 初始化一些数据</div><div class="line">data = [(51.5, 0.1), (51.7, 0.2), (51.4, -0.2), (51.49, 0.1)]</div><div class="line"></div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><img src="http://waverley.me/assets/blogImg/gmaps3.png" alt="此处输入图片的描述"><br>你还可以通过一些参数来调整图层，如下两种方式是等价的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">heatmap_layer.point_radius = 8</div></pre></td></tr></table></figure></p>
+<p>和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heatmap_layer = gmaps.Heatmap(data=data, point_radius=8)</div></pre></td></tr></table></figure></p>
+<p>第一种可在图层已经建立之后，通过调整参数来动态调整图层；</p>
+<p><strong>热力图</strong><br>热力图是一种很好的描述特定地理位置的某一事件集中程度的方法，是一个可以展示大量数据信息的强大工具。例如，我们将1997年到2015年之间发生在非洲的110,000 起暴力事件展示出来;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line">gmaps.configure(&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line">data = gmaps.datasets.load_dataset(&quot;acled_africa.csv&quot;)</div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><img src="http://waverley.me/assets/blogImg/gmaps4.png" alt="此处输入图片的描述"></p>
+<ul>
+<li>缩放热散<br>当你在放大或缩小地图时，热力点可能会消失，这时你可以用<em>max_intensity</em>（最大峰值强度）参数来进行设置，当你的数据有明显的峰值时，这个参数是非常有用的；这个值通常配合<em>point_radius</em>（点半径）参数一起来进行调整，直到调整到你以为合适的数值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">heatmap_layer.max_intensity = 100</div><div class="line">heatmap_layer.point_radius = 5</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Google maps还提供了一个dissipating参数（默认为true），当为true时，每个点的影响半径与缩放级别相关；当为false时，每个点覆盖的物理半径保持不变；</p>
+<ul>
+<li>设置颜色梯度和不透明度<br>Gmaps可以通过一个颜色列表来进行颜色梯度的设置，并且Google maps将会自动在相邻颜色间进行插值，颜色设置可以<a href="https://www.w3.org/TR/css3-color/#html4" target="_blank" rel="external">这样</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">heatmap.gradient = [</div><div class="line">    &apos;white&apos;,</div><div class="line">    &apos;silver&apos;,</div><div class="line">    &apos;gray&apos;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>或者RGB/RGBA元组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">heatmap.gradient = [</div><div class="line">    (200, 200, 200, 0.6),</div><div class="line">    (100, 100, 100, 0.3),</div><div class="line">    (50, 50, 50, 0.3)</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><img src="http://waverley.me/assets/blogImg/gmaps5.png" alt="此处输入图片的描述"><br>还可以通过<em>opacity</em>参数来调整热力图层的不透明度。</p>
+<ul>
+<li>权重热力图<br>权重热力图与热力图一样，仅仅是多了数据元组中多了权重项(latitude, longitude, weight)；由于Google Maps的限制，权重项必须是正值；<br><img src="http://waverley.me/assets/blogImg/gmaps6.png" alt="此处输入图片的描述"></li>
+</ul>
+<p><strong>其他功能</strong><br>    Gmaps插件的功能远不止这些，以上仅仅介绍了有关热力图部分，更多功能等待大家去学习。<br>    项目源码见我的<a href="https://github.com/newctech/gmaps" target="_blank" rel="external">github</a>。</p>
 
       
     </div>
@@ -427,7 +496,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/闲聊/" rel="tag">#闲聊</a>
+            <a href="/tags/Jupyter-Notebook/" rel="tag">#Jupyter Notebook</a>
+          
+            <a href="/tags/工具/" rel="tag">#工具</a>
+          
+            <a href="/tags/Gmaps/" rel="tag">#Gmaps</a>
+          
+            <a href="/tags/热力图heatmap/" rel="tag">#热力图heatmap</a>
           
         </div>
       
@@ -436,13 +511,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/04/Jupyter Notebook：交互计算工具/" rel="next" title="Jupyter Notebook：交互计算工具">
+                <i class="fa fa-chevron-left"></i> Jupyter Notebook：交互计算工具
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/26/Git入门手册/" rel="prev" title="Git入门手册">
-                Git入门手册 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -457,10 +532,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/25/hello-world/"
-     data-title="Hello World"
+        <div class="ds-share flat" data-thread-key="2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/"
+     data-title="Gmaps:轻松集成Google Maps的Jupyter Notebook插件"
      data-content=""
-     data-url="http://www.waverley.me/2016/10/25/hello-world/">
+     data-url="http://www.waverley.me/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -487,8 +562,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/25/hello-world/"
-           data-title="Hello World" data-url="http://www.waverley.me/2016/10/25/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/"
+           data-title="Gmaps:轻松集成Google Maps的Jupyter Notebook插件" data-url="http://www.waverley.me/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/">
       </div>
     
   </div>
