@@ -4,18 +4,20 @@
 
     
   <url>
-    <loc>http://www.waverley.me/2016/11/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2016-12-20T16:40:10.000Z</lastmod>
+    <loc>http://www.waverley.me/2016/12/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2016-12-20T16:44:16.000Z</lastmod>
     <data>
         <display>
-        <title>Jupyter Notebook：交互计算工具</title>
-        <pubTime>2016-11-03T16:40:00.000Z</pubTime>
+        <title>Gmaps:轻松集成Google Maps</title>
+        <pubTime>2016-12-20T16:30:00.000Z</pubTime>
         
-        <tag>手册</tag>
-         
         <tag>Jupyter Notebook</tag>
          
         <tag>工具</tag>
+         
+        <tag>Gmaps</tag>
+         
+        <tag>热力图heatmap</tag>
          
          
            
@@ -31,20 +33,18 @@
 
     
   <url>
-    <loc>http://www.waverley.me/2016/12/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2016-12-20T16:39:52.000Z</lastmod>
+    <loc>http://www.waverley.me/2016/11/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2016-12-20T16:40:10.000Z</lastmod>
     <data>
         <display>
-        <title>Gmaps:轻松集成Google Maps的Jupyter Notebook插件</title>
-        <pubTime>2016-12-20T16:30:00.000Z</pubTime>
+        <title>Jupyter Notebook：交互计算工具</title>
+        <pubTime>2016-11-03T16:40:00.000Z</pubTime>
         
         <tag>Jupyter Notebook</tag>
          
         <tag>工具</tag>
          
-        <tag>Gmaps</tag>
-         
-        <tag>热力图heatmap</tag>
+        <tag>手册</tag>
          
          
            
