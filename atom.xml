@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2016-12-20T16:44:16.000Z</updated>
+  <updated>2016-12-20T16:48:06.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://www.waverley.me/2016/12/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/"/>
     <id>http://www.waverley.me/2016/12/21/Gmaps-轻松集成Google Maps的Jupyter Notebook插件/</id>
     <published>2016-12-20T16:30:00.000Z</published>
-    <updated>2016-12-20T16:44:16.000Z</updated>
+    <updated>2016-12-20T16:48:06.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center">Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个强大的数据可视化工具.</blockquote>
 
 
 <p>Gmaps可以让你很简单地调用Google Maps，本文将简单介绍Gmaps的入门知识,以及有关热力图的绘制。<br><a id="more"></a></p>
-<p><strong>安装</strong></p>
+<p><strong>一、安装</strong></p>
 <ol>
 <li><p>最新版本的Gmaps需要升级你的IPython到4.2及以上版本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install -U jupyter</div></pre></td></tr></table></figure>
@@ -35,7 +35,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install gmaps</div><div class="line">jupyter nbextension enable --py gmaps</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>申请API Key</strong></p>
+<p><strong>二、申请API Key</strong></p>
 <ol>
 <li><p>要通过Google Maps的认证，你首先需要申请一个API Key，<a href="https://console.developers.google.com/projectselector/apis/api/static_maps_backend/overview" target="_blank" rel="external">申请连接</a>。进入申请界面，创建工程，然后点击<em>凭证</em>，选择<em>API密钥</em>，如下图<img src="http://waverley.me/assets/blogImg/gmaps1.png" alt="此处输入图片的描述"></p>
 </li>
@@ -48,13 +48,15 @@
 </li>
 </ol>
 <p>这样，Maps和图层就可以通过你的API key来进行认证；</p>
-<p><strong>开始使用</strong><br>Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个数据可视化工具。<br>首先，让我们来画一个地震分布图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line"></div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;) # Fill in with your API key</div><div class="line"></div><div class="line">earthquake_data = gmaps.datasets.load_dataset(&quot;earthquakes&quot;)</div><div class="line"></div><div class="line">print(earthquake_data[:4]) # first four rows</div><div class="line"></div><div class="line">#在Google Mpas上画出地震分布图</div><div class="line">m = gmaps.Map()</div><div class="line">m.add_layer(gmaps.WeightedHeatmap(data=earthquake_data))</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><strong>三、开始使用</strong></p>
+<p>Gmaps是一个嵌入了Google Mpas的jupyter插件，是一个数据可视化工具。<br>首先，让我们来画一个地震分布图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line"></div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;) # Fill in with your API key</div><div class="line"></div><div class="line">earthquake_data = gmaps.datasets.load_dataset(&quot;earthquakes&quot;)</div><div class="line"></div><div class="line">print(earthquake_data[:4]) # first four rows</div><div class="line"></div><div class="line">#在Google Mpas上画出地震分布图</div><div class="line">m = gmaps.Map()</div><div class="line">m.add_layer(gmaps.WeightedHeatmap(data=earthquake_data))</div><div class="line">m</div></pre></td></tr></table></figure></p>
 <p><img src="http://waverley.me/assets/blogImg/gmaps2.png" alt="此处输入图片的描述"><br>这是一个完整的Google Maps，你可以放大缩小、卫星视图、街景等，并且热力图将会自适应。</p>
-<p><strong>基本原理</strong><br>gmaps是在原生Google Maps上添加一个图层；当你创建一个基本地图后，然后你可以在地图上增加一个新的图层，例如热力图层：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line"># 初始化一些数据</div><div class="line">data = [(51.5, 0.1), (51.7, 0.2), (51.4, -0.2), (51.49, 0.1)]</div><div class="line"></div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><strong>四、基本原理</strong></p>
+<p>gmaps是在原生Google Maps上添加一个图层；当你创建一个基本地图后，然后你可以在地图上增加一个新的图层，例如热力图层：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">gmaps.configure(api_key=&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line"># 初始化一些数据</div><div class="line">data = [(51.5, 0.1), (51.7, 0.2), (51.4, -0.2), (51.49, 0.1)]</div><div class="line"></div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
 <p><img src="http://waverley.me/assets/blogImg/gmaps3.png" alt="此处输入图片的描述"><br>你还可以通过一些参数来调整图层，如下两种方式是等价的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">heatmap_layer.point_radius = 8</div></pre></td></tr></table></figure></p>
 <p>和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heatmap_layer = gmaps.Heatmap(data=data, point_radius=8)</div></pre></td></tr></table></figure></p>
 <p>第一种可在图层已经建立之后，通过调整参数来动态调整图层；</p>
-<p><strong>热力图</strong><br>热力图是一种很好的描述特定地理位置的某一事件集中程度的方法，是一个可以展示大量数据信息的强大工具。例如，我们将1997年到2015年之间发生在非洲的110,000 起暴力事件展示出来;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line">gmaps.configure(&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line">data = gmaps.datasets.load_dataset(&quot;acled_africa.csv&quot;)</div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
+<p><strong>五、热力图</strong><br>热力图是一种很好的描述特定地理位置的某一事件集中程度的方法，是一个可以展示大量数据信息的强大工具。例如，我们将1997年到2015年之间发生在非洲的110,000 起暴力事件展示出来;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import gmaps</div><div class="line">import gmaps.datasets</div><div class="line">gmaps.configure(&quot;AI...&quot;)</div><div class="line"></div><div class="line">m = gmaps.Map()</div><div class="line"></div><div class="line">data = gmaps.datasets.load_dataset(&quot;acled_africa.csv&quot;)</div><div class="line">heatmap_layer = gmaps.Heatmap(data=data)</div><div class="line">m.add_layer(heatmap_layer)</div><div class="line">m</div></pre></td></tr></table></figure></p>
 <p><img src="http://waverley.me/assets/blogImg/gmaps4.png" alt="此处输入图片的描述"></p>
 <ul>
 <li>缩放热散<br>当你在放大或缩小地图时，热力点可能会消失，这时你可以用<em>max_intensity</em>（最大峰值强度）参数来进行设置，当你的数据有明显的峰值时，这个参数是非常有用的；这个值通常配合<em>point_radius</em>（点半径）参数一起来进行调整，直到调整到你以为合适的数值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">heatmap_layer.max_intensity = 100</div><div class="line">heatmap_layer.point_radius = 5</div></pre></td></tr></table></figure>
@@ -70,8 +72,10 @@
 <ul>
 <li>权重热力图<br>权重热力图与热力图一样，仅仅是多了数据元组中多了权重项(latitude, longitude, weight)；由于Google Maps的限制，权重项必须是正值；<br><img src="http://waverley.me/assets/blogImg/gmaps6.png" alt="此处输入图片的描述"></li>
 </ul>
-<p><strong>其他功能</strong><br>    Gmaps插件的功能远不止这些，以上仅仅介绍了有关热力图部分，更多功能等待大家一同去学习。<br>    项目源码见我的<a href="https://github.com/newctech/gmaps" target="_blank" rel="external">github</a>。</p>
-]]></content>
+<p><strong>六、其他功能</strong></p>
+<pre><code>Gmaps插件的功能远不止这些，以上仅仅介绍了有关热力图部分，更多功能等待大家一同去学习。
+项目源码见我的[github][9]。
+</code></pre>]]></content>
     
     <summary type="html">
     
