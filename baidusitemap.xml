@@ -4,12 +4,40 @@
 
     
   <url>
-    <loc>http://www.waverley.me/2016/12/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2016-12-20T16:55:04.000Z</lastmod>
+    <loc>http://www.waverley.me/2016/12/02/python%E9%AB%98%E5%B9%B6%E5%8F%91%E7%88%AC%E5%8F%96%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2016-12-21T15:35:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>python高并发爬取网络数据</title>
+        <pubTime>2016-12-02T15:30:00.000Z</pubTime>
+        
+        <tag>Jupyter Notebook</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>工具</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>高并发</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.waverley.me/2016/10/21/Gmaps-%E8%BD%BB%E6%9D%BE%E9%9B%86%E6%88%90Google%20Maps%E7%9A%84Jupyter%20Notebook%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2016-12-21T15:34:36.000Z</lastmod>
     <data>
         <display>
         <title>Gmaps:轻松集成Google Maps</title>
-        <pubTime>2016-12-20T16:30:00.000Z</pubTime>
+        <pubTime>2016-10-20T16:30:00.000Z</pubTime>
         
         <tag>Jupyter Notebook</tag>
          
@@ -33,45 +61,44 @@
 
     
   <url>
-    <loc>http://www.waverley.me/2016/11/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2016-12-20T16:40:10.000Z</lastmod>
+    <loc>http://www.waverley.me/2016/04/16/Git%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2016-12-21T15:34:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git入门手册</title>
+        <pubTime>2016-04-16T06:40:00.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>手册</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+             
+              <breadCrumb title="手册速查" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.waverley.me/2016/09/04/Jupyter%20Notebook%EF%BC%9A%E4%BA%A4%E4%BA%92%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2016-12-21T15:34:07.000Z</lastmod>
     <data>
         <display>
         <title>Jupyter Notebook：交互计算工具</title>
-        <pubTime>2016-11-03T16:40:00.000Z</pubTime>
+        <pubTime>2016-09-03T16:40:00.000Z</pubTime>
         
+        <tag>手册</tag>
+         
         <tag>Jupyter Notebook</tag>
          
         <tag>工具</tag>
          
-        <tag>手册</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术总结" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
-          
-             
-              <breadCrumb title="手册速查" url="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://www.waverley.me/2016/10/26/Git%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2016-10-29T15:17:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git入门手册</title>
-        <pubTime>2016-10-26T06:40:00.000Z</pubTime>
-        
-        <tag>手册</tag>
-         
-        <tag>Git</tag>
-         
          
            
              
@@ -86,12 +113,12 @@
 
     
   <url>
-    <loc>http://www.waverley.me/2016/10/25/hello-world/</loc>
-    <lastmod>2016-10-29T15:08:03.000Z</lastmod>
+    <loc>http://www.waverley.me/2016/03/25/hello-world/</loc>
+    <lastmod>2016-12-21T15:33:41.000Z</lastmod>
     <data>
         <display>
         <title>Hello World</title>
-        <pubTime>2016-10-25T15:55:00.000Z</pubTime>
+        <pubTime>2016-03-25T15:55:00.000Z</pubTime>
         
         <tag>闲聊</tag>
          
@@ -104,6 +131,7 @@
     </data>
     </url>
 
+    
     
     
     
