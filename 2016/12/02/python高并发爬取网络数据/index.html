@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Jupyter Notebook,工具,Python,爬虫,高并发," />
+  <meta name="keywords" content="Jupyter Notebook,Python,工具,爬虫,高并发," />
 
 
 
@@ -90,29 +90,24 @@
 
 
 
-<meta name="description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。
-
-![此处输入图片的描述][12]">
+<meta name="description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python高并发爬取网络数据">
 <meta property="og:url" content="http://www.waverley.me/2016/12/02/python高并发爬取网络数据/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。
-
-![此处输入图片的描述][12]">
+<meta property="og:description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/aio0.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio2.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio1.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio4.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio3.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio6.png">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/aio5.png">
-<meta property="og:updated_time" content="2016-12-21T15:37:58.000Z">
+<meta property="og:updated_time" content="2016-12-21T15:46:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高并发爬取网络数据">
-<meta name="twitter:description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。
-
-![此处输入图片的描述][12]">
-<meta name="twitter:image" content="http://waverley.me/assets/blogImg/aio2.png">
+<meta name="twitter:description" content="对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。">
+<meta name="twitter:image" content="http://waverley.me/assets/blogImg/aio0.png">
 
 
 
@@ -386,7 +381,7 @@
       
         <blockquote class="blockquote-center">对比测试协程（asyncio）和异步IO（aiohttp）在爬虫中的优秀表现。</blockquote>
 
-<p>![此处输入图片的描述][12]</p>
+<p><img src="http://waverley.me/assets/blogImg/aio0.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 <p>Python中解决IO密集型任务（打开多个网站）的方式有很多种，比如多进程、多线程。但理论上一台电脑中的线程数、进程数是有限的，而且进程、线程之间的切换也比较浪费时间。所以就出现了“协程”的概念。本文将利用协程（<a href="https://docs.python.org/3/library/asyncio.html" target="_blank" rel="external">asyncio</a>）和异步IO（<a href="https://aiohttp.readthedocs.io/en/latest/client.html" target="_blank" rel="external">aiohttp</a>）快速爬取网络数据，并对三种获取方式进行对比。</p>
 <p><strong>一、<a href="http://www.python-requests.org/en/master/" target="_blank" rel="external">Requests</a>方式</strong><br><a href="http://www.python-requests.org/en/master/" target="_blank" rel="external">Requests</a> 是用Python语言编写，基于 urllib，采用 Apache2 Licensed 开源协议的 HTTP 库。它比 urllib 更加方便，可以节约我们大量的工作。<br>下面我们使用<a href="http://www.python-requests.org/en/master/" target="_blank" rel="external">Requests</a>来获取雪球网站3000只股票信息（这里我用使用uid和token来登录网站网站）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># coding:utf-8</div><div class="line">import requests</div><div class="line">import json</div><div class="line">import time</div><div class="line">headers = &#123;</div><div class="line">    &apos;Cookie&apos;: &apos;xq_a_token=XXX;u=XXX&apos;,</div><div class="line">    &apos;User-Agent&apos;: &apos;Xueqiu Android 8.9&apos;,</div><div class="line">    &apos;Host&apos;: &apos;stock.xueqiu.com&apos;,</div><div class="line">    &apos;Pragma&apos;: &apos;no-cache&apos;,</div><div class="line">    &apos;Connection&apos;: &apos;keep-alive&apos;,</div><div class="line">    &apos;Accept-Encoding&apos;: &apos;gzip&apos;,</div><div class="line">    &apos;Accept-Language&apos;: &apos;zh-CN,zh;q=0.8&apos;</div><div class="line">&#125;</div><div class="line">session = requests.Session()</div><div class="line">session.headers.update(headers)</div><div class="line">url = &apos;https://xueqiu.com/stock/forchartk/stocklist.json?symbol=SH601211&amp;period=60m&amp;type=normal&amp;begin=1480986000000&amp;end=&amp;_=1479483981359&apos;</div><div class="line">while True:</div><div class="line">    start_time = time.time()</div><div class="line">    for _ in range(300):#重复300次</div><div class="line">        request = session.get(url)</div><div class="line">        stocks = json.loads(request.text)</div><div class="line">    end_time = time.time()</div><div class="line">    print(&quot;%s second&quot; % (end_time - start_time))</div></pre></td></tr></table></figure></p>
@@ -396,7 +391,6 @@
 <p>这次我们从运行结果可以看到，使用线程池后，获取3000只股票信息只需要25s了；并且这里的70个线程已经是最佳效果了；此时，我们可以看到程序的网络带宽利用率最大值已经达到了4.54MBit/s。<br><img src="http://waverley.me/assets/blogImg/aio3.png" alt="此处输入图片的描述"></p>
 <p><strong>三、asyncio和aiohttp高并发</strong><br>现在，我们来一起测试下asyncio和aiohttp的高并发能力：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"># coding:utf-8</div><div class="line">import time</div><div class="line">import asyncio</div><div class="line">import json</div><div class="line">import aiohttp</div><div class="line">import yarl</div><div class="line"></div><div class="line">class TestAIOhttp:</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.headers = &#123;</div><div class="line">            &apos;Cookie&apos;: &apos;xq_a_token=xxx;u=xxx&apos;,</div><div class="line">            &apos;User-Agent&apos;: &apos;Xueqiu Android 8.8&apos;,</div><div class="line">            &apos;Host&apos;: &apos;stock.xueqiu.com&apos;,</div><div class="line">            &apos;Pragma&apos;: &apos;no-cache&apos;,</div><div class="line">            &apos;Connection&apos;: &apos;keep-alive&apos;,</div><div class="line">            &apos;Accept-Encoding&apos;: &apos;gzip&apos;,</div><div class="line">            &apos;Accept-Language&apos;: &apos;zh-CN,zh;q=0.8&apos;</div><div class="line">        &#125;</div><div class="line">        self.url = &apos;https://xueqiu.com/stock/forchartk/stocklist.json?period=60m&amp;type=normal&amp;begin=1480986000000&amp;end=&amp;_=1479483981359&amp;symbol=&apos;</div><div class="line">        #模拟3000只股票</div><div class="line">        self.stock_list = [&apos;SH601211&apos; for x in range(3000)]</div><div class="line"></div><div class="line">    @property</div><div class="line">    def all(self):</div><div class="line">        return self.get_stock(self.stock_list)</div><div class="line"></div><div class="line">    async def get_stocks_by_range(self, params):</div><div class="line">        url = yarl.URL(self.url + params, encoded=True)</div><div class="line">        try:</div><div class="line">            async with self.__session.get(url, timeout=10, headers=self.headers) as r:</div><div class="line">                response_text = await r.text()</div><div class="line">                return response_text</div><div class="line">        except asyncio.TimeoutError:</div><div class="line">            return None</div><div class="line"></div><div class="line">    def get_stock(self, stock_list):</div><div class="line">        self.__session = aiohttp.ClientSession()</div><div class="line">        coroutines = []</div><div class="line">        result_str = &apos;&apos;</div><div class="line"></div><div class="line">        for params in stock_list:</div><div class="line">            coroutine = self.get_stocks_by_range(params)</div><div class="line">            coroutines.append(coroutine)</div><div class="line">        try:</div><div class="line">            loop = asyncio.get_event_loop()</div><div class="line">        except RuntimeError:</div><div class="line">            loop = asyncio.new_event_loop()</div><div class="line">            asyncio.set_event_loop(loop)</div><div class="line">        res = loop.run_until_complete(asyncio.gather(*coroutines))</div><div class="line"></div><div class="line">        self.__session.close()</div><div class="line">        return &apos;[&apos; + &apos;,&apos;.join([x for x in res if x is not None and len(x) &gt; 2]) + &apos;]&apos;</div><div class="line">    </div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    q = TestAIOhttp()</div><div class="line">    while True:</div><div class="line">        start_time = time.time()</div><div class="line">        data = q.all</div><div class="line">        end_time = time.time()</div><div class="line">        print(&quot;%s second&quot; % (end_time - start_time))</div></pre></td></tr></table></figure></p>
 <p><img src="http://waverley.me/assets/blogImg/aio6.png" alt="此处输入图片的描述"><br>这次我们获取3000只股票信息只需要10s了，同时程序的网络带宽利用率最大值也达到了将近10MBit/s，这也是我20M带宽wifi的极限了；此处的测试瓶颈已经是我的网络带宽了，若提供更多的带宽资源，得到的数据可能会更加完美；不过，这里的三种方法的对比结果已经很明显了，在需要迅速爬取大量网络数据时，asyncio和aiohttp不失是一种不错的选择。<br><img src="http://waverley.me/assets/blogImg/aio5.png" alt="此处输入图片的描述"></p>
-<p>  [12]: 11]: <a href="http://waverley.me/assets/blogImg/aio0.png" target="_blank" rel="external">http://waverley.me/assets/blogImg/aio0.png</a></p>
 
       
     </div>
@@ -442,9 +436,9 @@
           
             <a href="/tags/Jupyter-Notebook/" rel="tag">#Jupyter Notebook</a>
           
-            <a href="/tags/工具/" rel="tag">#工具</a>
-          
             <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/工具/" rel="tag">#工具</a>
           
             <a href="/tags/爬虫/" rel="tag">#爬虫</a>
           
