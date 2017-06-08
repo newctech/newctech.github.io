@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T14:15:59.000Z</updated>
+  <updated>2017-06-08T14:20:08.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -14,6 +14,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FreeBSD中的sysctl函数</title>
+    <link href="http://www.waverley.me/2017/05/10/FreeBSD%E4%B8%AD%E7%9A%84sysctl%E5%87%BD%E6%95%B0/"/>
+    <id>http://www.waverley.me/2017/05/10/FreeBSD中的sysctl函数/</id>
+    <published>2017-05-10T15:12:00.000Z</published>
+    <updated>2017-06-08T14:20:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><br>sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。</blockquote>
+
+<p>FreeBSD中sysctl家族的函数定义：</p>
+<pre><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/sysctl.h&gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlnametomib(const char *name, int *mibp, size_t *sizep);
+</code></pre><a id="more"></a>
+<p>在sysctl函数参数中，name和namelen用来表明内核参数ID；oldp和oldlenp用来存储当前内核参数的值；而newp和newlen则用来设置新的内核参数值。如果不需要的话，可以把相应的值置成NULL。<br>看一下sysctlbyname的实现：</p>
+<pre><code>int
+sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
+    const void *newp, size_t newlen)
+{
+    int real_oid[CTL_MAXNAME+2];
+    size_t oidlen;
+
+    oidlen = sizeof(real_oid) / sizeof(int);
+    if (sysctlnametomib(name, real_oid, &amp;oidlen) &lt; 0)
+        return (-1);
+    return (sysctl(real_oid, oidlen, oldp, oldlenp, newp, newlen));
+}
+</code></pre><p>可以看到，sysctlbyname首先通过sysctlnametomib获得真正的ID，接着调用sysctl完成想要的工作。</p>
+<p>参考资料：<br><a href="https://www.freebsd.org/cgi/man.cgi?sysctl%283%29" target="_blank" rel="external">SYSCTL(3)</a>;<br><a href="http://www.cs.unc.edu/~jeffay/dirt/FAQ/sysctl.html" target="_blank" rel="external">Grokking SYSCTL and the Art of Smashing Kernel Variables</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。&lt;/blockquote&gt;
+
+&lt;p&gt;FreeBSD中sysctl家族的函数定义：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/sysctl.h&amp;gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlnametomib(const char *name, int *mibp, size_t *sizep);
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="FreeBSD" scheme="http://www.waverley.me/tags/FreeBSD/"/>
+    
+      <category term="C语言" scheme="http://www.waverley.me/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>LIBGUESTFS分析介绍</title>
@@ -56,11 +128,11 @@
       <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
     
     
+      <category term="C语言" scheme="http://www.waverley.me/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
       <category term="Python" scheme="http://www.waverley.me/tags/Python/"/>
     
       <category term="Openstack" scheme="http://www.waverley.me/tags/Openstack/"/>
-    
-      <category term="C语言" scheme="http://www.waverley.me/tags/C%E8%AF%AD%E8%A8%80/"/>
     
       <category term="Libguestfs" scheme="http://www.waverley.me/tags/Libguestfs/"/>
     
@@ -424,11 +496,11 @@ procs_blocked 0
       <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="http://www.waverley.me/tags/Python/"/>
-    
       <category term="Jupyter Notebook" scheme="http://www.waverley.me/tags/Jupyter-Notebook/"/>
     
       <category term="工具" scheme="http://www.waverley.me/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Python" scheme="http://www.waverley.me/tags/Python/"/>
     
       <category term="爬虫" scheme="http://www.waverley.me/tags/%E7%88%AC%E8%99%AB/"/>
     

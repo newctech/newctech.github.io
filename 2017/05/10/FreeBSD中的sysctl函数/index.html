@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="FreeBSD,C语言," />
 
 
 
@@ -90,15 +90,37 @@
 
 
 
-<meta name="description" content="期待即将来临的马代之旅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Waverley">
-<meta property="og:url" content="http://www.waverley.me/archives/2017/index.html">
+<meta name="description" content="sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。
+
+FreeBSD中sysctl家族的函数定义：
+#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/sysctl.h&amp;gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FreeBSD中的sysctl函数">
+<meta property="og:url" content="http://www.waverley.me/2017/05/10/FreeBSD中的sysctl函数/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="期待即将来临的马代之旅">
+<meta property="og:description" content="sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。
+
+FreeBSD中sysctl家族的函数定义：
+#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/sysctl.h&amp;gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlen">
+<meta property="og:updated_time" content="2017-06-08T14:20:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Waverley">
-<meta name="twitter:description" content="期待即将来临的马代之旅">
+<meta name="twitter:title" content="FreeBSD中的sysctl函数">
+<meta name="twitter:description" content="sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。
+
+FreeBSD中sysctl家族的函数定义：
+#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/sysctl.h&amp;gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlen">
 
 
 
@@ -119,10 +141,10 @@
 
 
 
-  <link rel="canonical" href="http://www.waverley.me/archives/2017/"/>
+  <link rel="canonical" href="http://www.waverley.me/2017/05/10/FreeBSD中的sysctl函数/"/>
 
 
-  <title> 归档 | Waverley </title>
+  <title> FreeBSD中的sysctl函数 | Waverley </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +175,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -274,288 +296,230 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 12 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                FreeBSD中的sysctl函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-10T23:12:00+08:00" content="2017-05-10">
+              2017-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/10/FreeBSD中的sysctl函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/10/FreeBSD中的sysctl函数/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/10/FreeBSD中的sysctl函数/" class="leancloud_visitors" data-flag-title="FreeBSD中的sysctl函数">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <blockquote class="blockquote-center"><br>sysctl函数在unix类系统中有着至关重要的作用，可以用来获取或者设置kernel状态。</blockquote>
+
+<p>FreeBSD中sysctl家族的函数定义：</p>
+<pre><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/sysctl.h&gt;
+
+int
+sysctl(const int *name, u_int namelen, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
+const void *newp, size_t newlen);
+
+int
+sysctlnametomib(const char *name, int *mibp, size_t *sizep);
+</code></pre><a id="more"></a>
+<p>在sysctl函数参数中，name和namelen用来表明内核参数ID；oldp和oldlenp用来存储当前内核参数的值；而newp和newlen则用来设置新的内核参数值。如果不需要的话，可以把相应的值置成NULL。<br>看一下sysctlbyname的实现：</p>
+<pre><code>int
+sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
+    const void *newp, size_t newlen)
+{
+    int real_oid[CTL_MAXNAME+2];
+    size_t oidlen;
+
+    oidlen = sizeof(real_oid) / sizeof(int);
+    if (sysctlnametomib(name, real_oid, &amp;oidlen) &lt; 0)
+        return (-1);
+    return (sysctl(real_oid, oidlen, oldp, oldlenp, newp, newlen));
+}
+</code></pre><p>可以看到，sysctlbyname首先通过sysctlnametomib获得真正的ID，接着调用sysctl完成想要的工作。</p>
+<p>参考资料：<br><a href="https://www.freebsd.org/cgi/man.cgi?sysctl%283%29" target="_blank" rel="external">SYSCTL(3)</a>;<br><a href="http://www.cs.unc.edu/~jeffay/dirt/FAQ/sysctl.html" target="_blank" rel="external">Grokking SYSCTL and the Art of Smashing Kernel Variables</a>。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/assets/img/wechat-reward.png" alt="威风凛凛 WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/assets/img/alipay-reward.png" alt="威风凛凛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/FreeBSD/" rel="tag">#FreeBSD</a>
+          
+            <a href="/tags/C语言/" rel="tag">#C语言</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/10/FreeBSD中的sysctl函数/" itemprop="url">
-              
-                <span itemprop="name">FreeBSD中的sysctl函数</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/14/LIBGUESTFS分析介绍/" rel="next" title="LIBGUESTFS分析介绍">
+                <i class="fa fa-chevron-left"></i> LIBGUESTFS分析介绍
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T23:12:00+08:00"
-              content="2017-05-10" >
-          05-10
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2017/05/10/FreeBSD中的sysctl函数/"
+     data-title="FreeBSD中的sysctl函数"
+     data-content=""
+     data-url="http://www.waverley.me/2017/05/10/FreeBSD中的sysctl函数/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/14/LIBGUESTFS分析介绍/" itemprop="url">
-              
-                <span itemprop="name">LIBGUESTFS分析介绍</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-14T22:12:00+08:00"
-              content="2017-04-14" >
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/02/获取linux系统CPU实时利用率/" itemprop="url">
-              
-                <span itemprop="name">获取linux系统CPU实时利用率</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-02T23:43:00+08:00"
-              content="2017-04-02" >
-          04-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/如何查看Linux中进程运行在哪个CPU上/" itemprop="url">
-              
-                <span itemprop="name">如何查看Linux中进程运行在哪个CPU上</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T20:43:00+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/04/如何在C程序中嵌入python代码/" itemprop="url">
-              
-                <span itemprop="name">如何在C程序中嵌入python代码</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-04T22:59:00+08:00"
-              content="2017-03-04" >
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/30/GIT-修改远端的提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:修改远端的提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-30T21:40:00+08:00"
-              content="2017-01-30" >
-          01-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/16/GIT-重新组织本地提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:重新组织本地提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-16T14:40:00+08:00"
-              content="2017-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -563,6 +527,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/10/FreeBSD中的sysctl函数/"
+           data-title="FreeBSD中的sysctl函数" data-url="http://www.waverley.me/2017/05/10/FreeBSD中的sysctl函数/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -582,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/img/waverley.png"
@@ -678,6 +659,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -781,11 +773,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
 
 
   

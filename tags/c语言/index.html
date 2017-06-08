@@ -93,7 +93,7 @@
 <meta name="description" content="期待即将来临的马代之旅">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Waverley">
-<meta property="og:url" content="http://www.waverley.me/tags/C语言/index.html">
+<meta property="og:url" content="http://www.waverley.me/tags/c语言/index.html">
 <meta property="og:site_name" content="Waverley">
 <meta property="og:description" content="期待即将来临的马代之旅">
 <meta name="twitter:card" content="summary">
@@ -119,10 +119,10 @@
 
 
 
-  <link rel="canonical" href="http://www.waverley.me/tags/C语言/"/>
+  <link rel="canonical" href="http://www.waverley.me/tags/c语言/"/>
 
 
-  <title> 标签: C语言 | Waverley </title>
+  <title> 标签: c语言 | Waverley </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +277,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        C语言
+        c语言
         <small>标签</small>
       </h2>
     </div>
@@ -290,9 +290,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/04/14/LIBGUESTFS分析介绍/" itemprop="url">
+            <a class="post-title-link" href="/2017/03/04/如何在C程序中嵌入python代码/" itemprop="url">
               
-                <span itemprop="name">LIBGUESTFS分析介绍</span>
+                <span itemprop="name">如何在C程序中嵌入python代码</span>
               
             </a>
         
@@ -300,9 +300,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-14T22:12:00+08:00"
-              content="2017-04-14" >
-          04-14
+              datetime="2017-03-04T22:59:00+08:00"
+              content="2017-03-04" >
+          03-04
         </time>
       </div>
 
@@ -352,7 +352,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -369,7 +369,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -828,6 +828,38 @@
     $(function() {
       var Counter = AV.Object.extend("Counter");
       if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
+eancloud_visitors').length == 1) {
         addCount(Counter);
       } else if ($('.post-title-link').length > 1) {
         showTime(Counter);
