@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,proc," />
 
 
 
@@ -90,15 +90,25 @@
 
 
 
-<meta name="description" content="期待即将来临的马代之旅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Waverley">
-<meta property="og:url" content="http://www.waverley.me/archives/2017/index.html">
+<meta name="description" content="在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。这个文件的一般格式如下所示：
+[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取linux系统CPU实时利用率">
+<meta property="og:url" content="http://www.waverley.me/2017/04/02/获取linux系统CPU实时利用率/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="期待即将来临的马代之旅">
+<meta property="og:description" content="在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。这个文件的一般格式如下所示：
+[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 6">
+<meta property="og:updated_time" content="2017-06-08T14:01:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Waverley">
-<meta name="twitter:description" content="期待即将来临的马代之旅">
+<meta name="twitter:title" content="获取linux系统CPU实时利用率">
+<meta name="twitter:description" content="在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。这个文件的一般格式如下所示：
+[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 6">
 
 
 
@@ -119,10 +129,10 @@
 
 
 
-  <link rel="canonical" href="http://www.waverley.me/archives/2017/"/>
+  <link rel="canonical" href="http://www.waverley.me/2017/04/02/获取linux系统CPU实时利用率/"/>
 
 
-  <title> 归档 | Waverley </title>
+  <title> 获取linux系统CPU实时利用率 | Waverley </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -274,214 +284,278 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 10 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                获取linux系统CPU实时利用率
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-02T23:43:00+08:00" content="2017-04-02">
+              2017-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/手册速查/" itemprop="url" rel="index">
+                    <span itemprop="name">手册速查</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/02/获取linux系统CPU实时利用率/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/02/获取linux系统CPU实时利用率/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/02/获取linux系统CPU实时利用率/" class="leancloud_visitors" data-flag-title="获取linux系统CPU实时利用率">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p><blockquote class="blockquote-center"><br>在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。</blockquote><br>这个文件的一般格式如下所示：</p>
+<pre><code>[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 61249161 31399 23283 70496 0
+cpu1 148795 8762 49405 61348642 8316 538 3566 0
+intr 636408939 615480120 9 0 0 4 0 4 0 1 0 85 0 73 0 1844999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 481644 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16401031 0 0 0 0 0 0 0 2054028 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146941 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 30181583
+btime 1488951210
+processes 431551
+procs_running 1
+procs_blocked 0
+</code></pre><a id="more"></a>
+<p>文件的前几行记录了每个CPU核心的在各种状态下分配的时间片（单位是Jiffies，一般为0.01s），这些数据是从CPU加电到当前的累计值。常用的监控软件（例如top等）就是利用/proc/stat里面的这些数据计算CPU利用率的。</p>
+<p>不同版本的linux /proc/stat文件内容有略微差异，各列参数说明如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User(1)</td>
+<td>从系统启动开始累积到当前时刻，处于用户态的运行时间，不包含nice值为负进程；</td>
+</tr>
+<tr>
+<td>Nice(2)</td>
+<td>从系统启动开始累积到当前时刻，nice值为负的进程所占用的CPU时间；</td>
+</tr>
+<tr>
+<td>System(3)</td>
+<td>从系统启动开始累积到当前时刻，处于和心态的运行时间;</td>
+</tr>
+<tr>
+<td>Idle(4)</td>
+<td>从系统启动开始累积到当前时刻，除IO等待时间外的其他等待时间；</td>
+</tr>
+<tr>
+<td>Iowait(5)</td>
+<td>从系统启动开始累积到当前时刻，IO等待时间（since 2.5.41）;</td>
+</tr>
+<tr>
+<td>Irq(6)</td>
+<td>从系统启动开始累积到当前时刻，硬中断时间（since 2.6.0-tests4）；</td>
+</tr>
+<tr>
+<td>Softirq(7)</td>
+<td>从系统启动开始累积到当前时刻，软中断时间（since 2.6.0-test5）； </td>
+</tr>
+<tr>
+<td>Steal(8)</td>
+<td>Stolen time, which is the time spent in other operating systems when running in a virtualized environment(since 2.6.11);</td>
+</tr>
+<tr>
+<td>Guest(9)</td>
+<td>Time spent running a virtual CPU for guest operating systems under the control of the Linux kernel(since 2.6.24);</td>
+</tr>
+<tr>
+<td>guest_nice(10)</td>
+<td>Time spent running a niced guest (virtual CPU for guest operating systems under the control of the Linux kernel)( since 2.6.24);</td>
+</tr>
+</tbody>
+</table>
+<p>因为/proc/stat中的数值都是从系统启动开始累积到当前时刻的累加值，所以需要在不同时间点t1和t2取值进行比较运算，当两个时间点的间隔较短时，就可以把这个计算结果看做是CPU的即时利用率。<br>CPU即时利用率（时间间隔1s）计算公式如下：<br><em>CPU在t1到t2时间段总的使用时间 = ( user2+ nice2+ system2+ idle2+ iowait2+ irq2+ softirq2) –<br>( user1+ nice1+ system1+ idle1+ iowait1+ irq1+ softirq1)<br>CPU在t1到t2时间段空闲使用时间 = (idle2 - idle1)<br>CPU在t1到t2时间段即时利用率   =  1 - CPU空闲使用时间 / CPU总的使用时间</em></p>
+<blockquote>
+<p>注：在利用公式进行CPU即时利用率计算时，一定要先判断Total和idle，有时计算出来的idle比Total还要大，出现时间倒流现象，较早的发行版OS内核可能会出现。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/assets/img/wechat-reward.png" alt="威风凛凛 WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/assets/img/alipay-reward.png" alt="威风凛凛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/proc/" rel="tag">#proc</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/02/获取linux系统CPU实时利用率/" itemprop="url">
-              
-                <span itemprop="name">获取linux系统CPU实时利用率</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/15/如何查看Linux中进程运行在哪个CPU上/" rel="next" title="如何查看Linux中进程运行在哪个CPU上">
+                <i class="fa fa-chevron-left"></i> 如何查看Linux中进程运行在哪个CPU上
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-02T23:43:00+08:00"
-              content="2017-04-02" >
-          04-02
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2017/04/02/获取linux系统CPU实时利用率/"
+     data-title="获取linux系统CPU实时利用率"
+     data-content=""
+     data-url="http://www.waverley.me/2017/04/02/获取linux系统CPU实时利用率/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/如何查看Linux中进程运行在哪个CPU上/" itemprop="url">
-              
-                <span itemprop="name">如何查看Linux中进程运行在哪个CPU上</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T20:43:00+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/04/如何在C程序中嵌入python代码/" itemprop="url">
-              
-                <span itemprop="name">如何在C程序中嵌入python代码</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-04T22:59:00+08:00"
-              content="2017-03-04" >
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/30/GIT-修改远端的提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:修改远端的提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-30T21:40:00+08:00"
-              content="2017-01-30" >
-          01-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/16/GIT-重新组织本地提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:重新组织本地提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-16T14:40:00+08:00"
-              content="2017-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -489,6 +563,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/02/获取linux系统CPU实时利用率/"
+           data-title="获取linux系统CPU实时利用率" data-url="http://www.waverley.me/2017/04/02/获取linux系统CPU实时利用率/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -508,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/img/waverley.png"
@@ -604,6 +695,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -707,11 +809,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
 
 
   

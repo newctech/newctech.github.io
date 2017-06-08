@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T14:00:04.000Z</updated>
+  <updated>2017-06-08T14:01:59.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -14,6 +14,111 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>获取linux系统CPU实时利用率</title>
+    <link href="http://www.waverley.me/2017/04/02/%E8%8E%B7%E5%8F%96linux%E7%B3%BB%E7%BB%9FCPU%E5%AE%9E%E6%97%B6%E5%88%A9%E7%94%A8%E7%8E%87/"/>
+    <id>http://www.waverley.me/2017/04/02/获取linux系统CPU实时利用率/</id>
+    <published>2017-04-02T15:43:00.000Z</published>
+    <updated>2017-06-08T14:01:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><blockquote class="blockquote-center"><br>在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。</blockquote><br>这个文件的一般格式如下所示：</p>
+<pre><code>[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 61249161 31399 23283 70496 0
+cpu1 148795 8762 49405 61348642 8316 538 3566 0
+intr 636408939 615480120 9 0 0 4 0 4 0 1 0 85 0 73 0 1844999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 481644 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16401031 0 0 0 0 0 0 0 2054028 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146941 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 30181583
+btime 1488951210
+processes 431551
+procs_running 1
+procs_blocked 0
+</code></pre><a id="more"></a>
+<p>文件的前几行记录了每个CPU核心的在各种状态下分配的时间片（单位是Jiffies，一般为0.01s），这些数据是从CPU加电到当前的累计值。常用的监控软件（例如top等）就是利用/proc/stat里面的这些数据计算CPU利用率的。</p>
+<p>不同版本的linux /proc/stat文件内容有略微差异，各列参数说明如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User(1)</td>
+<td>从系统启动开始累积到当前时刻，处于用户态的运行时间，不包含nice值为负进程；</td>
+</tr>
+<tr>
+<td>Nice(2)</td>
+<td>从系统启动开始累积到当前时刻，nice值为负的进程所占用的CPU时间；</td>
+</tr>
+<tr>
+<td>System(3)</td>
+<td>从系统启动开始累积到当前时刻，处于和心态的运行时间;</td>
+</tr>
+<tr>
+<td>Idle(4)</td>
+<td>从系统启动开始累积到当前时刻，除IO等待时间外的其他等待时间；</td>
+</tr>
+<tr>
+<td>Iowait(5)</td>
+<td>从系统启动开始累积到当前时刻，IO等待时间（since 2.5.41）;</td>
+</tr>
+<tr>
+<td>Irq(6)</td>
+<td>从系统启动开始累积到当前时刻，硬中断时间（since 2.6.0-tests4）；</td>
+</tr>
+<tr>
+<td>Softirq(7)</td>
+<td>从系统启动开始累积到当前时刻，软中断时间（since 2.6.0-test5）； </td>
+</tr>
+<tr>
+<td>Steal(8)</td>
+<td>Stolen time, which is the time spent in other operating systems when running in a virtualized environment(since 2.6.11);</td>
+</tr>
+<tr>
+<td>Guest(9)</td>
+<td>Time spent running a virtual CPU for guest operating systems under the control of the Linux kernel(since 2.6.24);</td>
+</tr>
+<tr>
+<td>guest_nice(10)</td>
+<td>Time spent running a niced guest (virtual CPU for guest operating systems under the control of the Linux kernel)( since 2.6.24);</td>
+</tr>
+</tbody>
+</table>
+<p>因为/proc/stat中的数值都是从系统启动开始累积到当前时刻的累加值，所以需要在不同时间点t1和t2取值进行比较运算，当两个时间点的间隔较短时，就可以把这个计算结果看做是CPU的即时利用率。<br>CPU即时利用率（时间间隔1s）计算公式如下：<br><em>CPU在t1到t2时间段总的使用时间 = ( user2+ nice2+ system2+ idle2+ iowait2+ irq2+ softirq2) –<br>( user1+ nice1+ system1+ idle1+ iowait1+ irq1+ softirq1)<br>CPU在t1到t2时间段空闲使用时间 = (idle2 - idle1)<br>CPU在t1到t2时间段即时利用率   =  1 - CPU空闲使用时间 / CPU总的使用时间</em></p>
+<blockquote>
+<p>注：在利用公式进行CPU即时利用率计算时，一定要先判断Total和idle，有时计算出来的idle比Total还要大，出现时间倒流现象，较早的发行版OS内核可能会出现。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;在Linux系统中，CPU时间的分配信息保存在/proc/stat文件中，我们就可以从这个文件中读取原始数据，然后计算出最终的CPU利用率的。&lt;/blockquote&gt;&lt;br&gt;这个文件的一般格式如下所示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@localhost ~]# cat /proc/stat
+cpu  245501 20040 134027 122597803 39715 23822 74062 0
+cpu0 96705 11277 84622 61249161 31399 23283 70496 0
+cpu1 148795 8762 49405 61348642 8316 538 3566 0
+intr 636408939 615480120 9 0 0 4 0 4 0 1 0 85 0 73 0 1844999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 481644 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16401031 0 0 0 0 0 0 0 2054028 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146941 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 30181583
+btime 1488951210
+processes 431551
+procs_running 1
+procs_blocked 0
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="手册速查" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
+    
+    
+      <category term="Linux" scheme="http://www.waverley.me/tags/Linux/"/>
+    
+      <category term="proc" scheme="http://www.waverley.me/tags/proc/"/>
+    
+  </entry>
   
   <entry>
     <title>如何查看Linux中进程运行在哪个CPU上</title>
