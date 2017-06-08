@@ -389,6 +389,11 @@
       
         
           <blockquote class="blockquote-center">当你不小心，写错了提交的commit/message，该如何处理呢？强大的GIT早已经为你备好了“后悔药”。</blockquote>
+
+
+
+<h2 id="1、修改最后一次提交"><a href="#1、修改最后一次提交" class="headerlink" title="1、修改最后一次提交"></a>1、修改最后一次提交</h2><p>理论上，SCM是不应该修改历史记录的，提交的注释也，不过在git中，其commit提供了一个–amend参数，可以修改最后一次提交的信息。要对最后一次提交进行修改，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add xxx</div><div class="line">git commit --ammend</div></pre></td></tr></table></figure></p>
+<p>这时出现的对话框中，可以进行message的编辑，然后退出，完成对本地最后一次提交的修改，然后再提交到远端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin remote_branch -f</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/30/GIT-修改远端的提交/#more" rel="contents">
               阅读全文 &raquo;

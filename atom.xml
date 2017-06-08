@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T13:37:54.000Z</updated>
+  <updated>2017-06-08T13:39:23.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -20,13 +20,15 @@
     <link href="http://www.waverley.me/2017/01/30/GIT-%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%AB%AF%E7%9A%84%E6%8F%90%E4%BA%A4/"/>
     <id>http://www.waverley.me/2017/01/30/GIT-修改远端的提交/</id>
     <published>2017-01-30T13:40:00.000Z</published>
-    <updated>2017-06-08T13:37:54.000Z</updated>
+    <updated>2017-06-08T13:39:23.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center">当你不小心，写错了提交的commit/message，该如何处理呢？强大的GIT早已经为你备好了“后悔药”。</blockquote>
 
-<a id="more"></a>
+
+
 <h2 id="1、修改最后一次提交"><a href="#1、修改最后一次提交" class="headerlink" title="1、修改最后一次提交"></a>1、修改最后一次提交</h2><p>理论上，SCM是不应该修改历史记录的，提交的注释也，不过在git中，其commit提供了一个–amend参数，可以修改最后一次提交的信息。要对最后一次提交进行修改，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add xxx</div><div class="line">git commit --ammend</div></pre></td></tr></table></figure></p>
 <p>这时出现的对话框中，可以进行message的编辑，然后退出，完成对本地最后一次提交的修改，然后再提交到远端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin remote_branch -f</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="2、修改历史提交"><a href="#2、修改历史提交" class="headerlink" title="2、修改历史提交"></a>2、修改历史提交</h2><p>git使用amend选项提供了最后一次commit的反悔。但是对于历史提交呢，就必须使用rebase了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rebase -i HEAD~3</div></pre></td></tr></table></figure></p>
 <p>表示要修改当前版本的倒数第三次状态。<br>这个命令出来之后，会显示出类似如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pick:******* </div><div class="line">pick:******* </div><div class="line">pick:*******</div></pre></td></tr></table></figure></p>
 <p> 如果你要修改哪个，就把那行的<strong>pick改成edit</strong>，然后退出。<br> 这时通过git log你可以发现，git的最后一次提交已经变成你选的那个了，这时再使用步骤1进行最后一次本地修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend</div></pre></td></tr></table></figure></p>
@@ -40,6 +42,11 @@
     <summary type="html">
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;当你不小心，写错了提交的commit/message，该如何处理呢？强大的GIT早已经为你备好了“后悔药”。&lt;/blockquote&gt;
+
+
+
+&lt;h2 id=&quot;1、修改最后一次提交&quot;&gt;&lt;a href=&quot;#1、修改最后一次提交&quot; class=&quot;headerlink&quot; title=&quot;1、修改最后一次提交&quot;&gt;&lt;/a&gt;1、修改最后一次提交&lt;/h2&gt;&lt;p&gt;理论上，SCM是不应该修改历史记录的，提交的注释也，不过在git中，其commit提供了一个–amend参数，可以修改最后一次提交的信息。要对最后一次提交进行修改，如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git add xxx&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git commit --ammend&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这时出现的对话框中，可以进行message的编辑，然后退出，完成对本地最后一次提交的修改，然后再提交到远端：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git push origin remote_branch -f&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
