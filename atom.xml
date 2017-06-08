@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T14:12:47.000Z</updated>
+  <updated>2017-06-08T14:15:59.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="http://www.waverley.me/2017/04/14/LIBGUESTFS%E5%88%86%E6%9E%90%E4%BB%8B%E7%BB%8D/"/>
     <id>http://www.waverley.me/2017/04/14/LIBGUESTFS分析介绍/</id>
     <published>2017-04-14T14:12:00.000Z</published>
-    <updated>2017-06-08T14:12:47.000Z</updated>
+    <updated>2017-06-08T14:15:59.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>Libguestfs——tools for accessing and modifying virtual machine disk images.<br>Libguestfs 是一套能够访问并修改虚机磁盘镜像的工具，可以用来查看编辑虚拟机磁盘内部文件，修改虚拟机内的脚本、监控虚拟机的磁盘使用情况、创建虚机磁盘等待，libguestfs能够访问任何虚机磁盘，并且不需要root权限，且有多层次的防御攻击虚机磁盘镜像的功能；它还可以访问远程机器或者CDs/USB上的磁盘镜像等。<br>Libguestfs从2009年持续开发到现在，有很丰富详细的使用手册，已经有很多应用成功的用户或项目，比如openstack。Libguestfs是一个C语言库，并且绑定十多种别的语言；开源KVM中的virt-builder、virt-install、virt-edit、virt-format、virt-inspector、virt-p2v、guestmount等一系列工具都是基于libguestfs库API来实现的。<br>官方网址：<a href="http://libguestfs.org/" target="_blank" rel="external">http://libguestfs.org/</a><br>开源代码：git clone git://github.com/libguestfs/libguestfs.git</p>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><br>Libguestfs 是一套能够访问并修改虚机磁盘镜像的工具，可以用来查看编辑虚拟机磁盘内部文件，监控虚拟机的磁盘使用情况、创建虚机磁盘等。</blockquote>
+
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>Libguestfs——tools for accessing and modifying virtual machine disk images.<br>Libguestfs 是一套能够访问并修改虚机磁盘镜像的工具，可以用来查看编辑虚拟机磁盘内部文件，修改虚拟机内的脚本、监控虚拟机的磁盘使用情况、创建虚机磁盘等待，libguestfs能够访问任何虚机磁盘，并且不需要root权限，且有多层次的防御攻击虚机磁盘镜像的功能；它还可以访问远程机器或者CDs/USB上的磁盘镜像等。<br>Libguestfs从2009年持续开发到现在，有很丰富详细的使用手册，已经有很多应用成功的用户或项目，比如openstack。Libguestfs是一个C语言库，并且绑定十多种别的语言；开源KVM中的virt-builder、virt-install、virt-edit、virt-format、virt-inspector、virt-p2v、guestmount等一系列工具都是基于libguestfs库API来实现的。<br>官方网址：<a href="http://libguestfs.org/" target="_blank" rel="external">http://libguestfs.org/</a><br>开源代码：git clone git://github.com/libguestfs/libguestfs.git<br><a id="more"></a></p>
 <h2 id="2-openstack如何部署虚机的？"><a href="#2-openstack如何部署虚机的？" class="headerlink" title="2 openstack如何部署虚机的？"></a>2 openstack如何部署虚机的？</h2><h2 id="2-1-openstack提供修改虚机磁盘镜像的方法"><a href="#2-1-openstack提供修改虚机磁盘镜像的方法" class="headerlink" title="2.1 openstack提供修改虚机磁盘镜像的方法"></a>2.1 openstack提供修改虚机磁盘镜像的方法</h2><p>openstack官网共提供了4种方法来修改虚机磁盘镜像：guestfish、guestmount、virt-*tools、nbd四种；其中前三种都是基于libguestfs库来实现的，第四种nbd正是CAS使用的方法。<br><img src="http://waverley.me/assets/blogImg/libguestfs2.png" alt="此处输入图片的描述"><br>然而，openstack已经不推荐使用nbd了，而是推荐使用基于libguestfs库的方法，实际代码中也是这么做的；<br>推荐的理由是：nbd直接将guest镜像挂载到host文件系统的方式是存在安全风险的，而libguestfs却可以提供至少两层防护；</p>
 <h2 id="2-2-nbd方式的安全隐患"><a href="#2-2-nbd方式的安全隐患" class="headerlink" title="2.2 nbd方式的安全隐患"></a>2.2 nbd方式的安全隐患</h2><p>这里有一篇介绍nbd的安全隐患的文章：<br><a href="https://www.berrange.com/posts/2013/02/20/a-reminder-why-you-should-never-mount-guest-disk-images-on-the-host-os/" target="_blank" rel="external">https://www.berrange.com/posts/2013/02/20/a-reminder-why-you-should-never-mount-guest-disk-images-on-the-host-os/</a><br>当用nbd直接挂载文件系统时，VFS的一些漏洞可能被攻击者利用而成为一个恶意的文件系统；主要有两方面原因：<br>1、    在内核中有很多文件系统驱动程序，但是他们有很多程序很少被使用，开发人员也很少去关注这些代码；linux用户空间可以帮助潜在的攻击者识别文件系统的类型，并且选择一些恶意的文件系统程序；<br>2、    一个内核级漏洞就像一个本地root漏洞，可以给潜在的攻击者提供访问系统硬件的权限。</p>
 <h2 id="2-3-Libguestfs的安全防护"><a href="#2-3-Libguestfs的安全防护" class="headerlink" title="2.3 Libguestfs的安全防护"></a>2.3 Libguestfs的安全防护</h2><p>Libguestfs可以通过创建虚机，在里面执行所有的文件系统操作的方式来阻止这种潜在的攻击；因此，即时攻击者利用VFS漏洞入侵到guest内核，他也必须突破虚机和secure virtualization后，才可能入侵到主机OS。<br>Libguestfs提供了一个分层的方法来隔离入侵：<a href="http://libguestfs.org/guestfs-security.1.html" target="_blank" rel="external">http://libguestfs.org/guestfs-security.1.html</a></p>
@@ -45,7 +47,9 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1 概述&quot;&gt;&lt;/a&gt;1 概述&lt;/h2&gt;&lt;p&gt;Libguestfs——tools for accessing and modifying virtual machine 
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;Libguestfs 是一套能够访问并修改虚机磁盘镜像的工具，可以用来查看编辑虚拟机磁盘内部文件，监控虚拟机的磁盘使用情况、创建虚机磁盘等。&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1 概述&quot;&gt;&lt;/a&gt;1 概述&lt;/h2&gt;&lt;p&gt;Libguestfs——tools for accessing and modifying virtual machine disk images.&lt;br&gt;Libguestfs 是一套能够访问并修改虚机磁盘镜像的工具，可以用来查看编辑虚拟机磁盘内部文件，修改虚拟机内的脚本、监控虚拟机的磁盘使用情况、创建虚机磁盘等待，libguestfs能够访问任何虚机磁盘，并且不需要root权限，且有多层次的防御攻击虚机磁盘镜像的功能；它还可以访问远程机器或者CDs/USB上的磁盘镜像等。&lt;br&gt;Libguestfs从2009年持续开发到现在，有很丰富详细的使用手册，已经有很多应用成功的用户或项目，比如openstack。Libguestfs是一个C语言库，并且绑定十多种别的语言；开源KVM中的virt-builder、virt-install、virt-edit、virt-format、virt-inspector、virt-p2v、guestmount等一系列工具都是基于libguestfs库API来实现的。&lt;br&gt;官方网址：&lt;a href=&quot;http://libguestfs.org/&quot;&gt;http://libguestfs.org/&lt;/a&gt;&lt;br&gt;开源代码：git clone git://github.com/libguestfs/libguestfs.git&lt;br&gt;
     
     </summary>
     
@@ -420,11 +424,11 @@ procs_blocked 0
       <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
     
     
+      <category term="Python" scheme="http://www.waverley.me/tags/Python/"/>
+    
       <category term="Jupyter Notebook" scheme="http://www.waverley.me/tags/Jupyter-Notebook/"/>
     
       <category term="工具" scheme="http://www.waverley.me/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Python" scheme="http://www.waverley.me/tags/Python/"/>
     
       <category term="爬虫" scheme="http://www.waverley.me/tags/%E7%88%AC%E8%99%AB/"/>
     
