@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T13:31:55.000Z</updated>
+  <updated>2017-06-08T13:33:47.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -20,13 +20,11 @@
     <link href="http://www.waverley.me/2017/01/16/GIT-%E9%87%8D%E6%96%B0%E7%BB%84%E7%BB%87%E6%9C%AC%E5%9C%B0%E6%8F%90%E4%BA%A4/"/>
     <id>http://www.waverley.me/2017/01/16/GIT-重新组织本地提交/</id>
     <published>2017-01-16T06:40:00.000Z</published>
-    <updated>2017-06-08T13:31:55.000Z</updated>
+    <updated>2017-06-08T13:33:47.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center">git可以让你对本地commit进行顺序调整，优化commit的组织性，然后再进行提交。</blockquote>
 
-<blockquote>
 <p>以git为首的SVCS现在已经很流行了，目前越来的企业和开源组织都在使用或者迁移到git上，github让git更加出色和流行。每次提到git，都会和SVN进行对比，当然这其中可以对比的因素。我这次主要就可以git可以本地提交的特性讲述如何在push之前对本地的commit进行重组。</p>
-</blockquote>
 <h2 id="本地commit重组的必要性"><a href="#本地commit重组的必要性" class="headerlink" title="本地commit重组的必要性"></a>本地commit重组的必要性</h2><p>在开发过程中，有很多优秀的实践指导着我们，其中有一条是“每次提交一个功能点”，意思是说每次提交应该是一个独立的单元，还有另外一条优秀实践是“频繁提交，小提交”，意思是说要频繁提交代码，并且最好是小的提交。其实这两条都没错，但是总是感觉有点冲突和矛盾。如果想完美做到第一条，那么写代码之前要好好规划，每次提交要修改哪些文件，然后才能一次提交一个完整的单元，但是这么做又会产生大commit，和第二条有冲突。考虑到很难在开发之前，设计那么清楚，就像设计大功能一样，可以边做边重构，甚至是做完重构。</p>
 <p>所以针对git本地的commit也是一样，可以先比较频繁地执行小提交，这样每个小提交可以达到一个提交一个功能了。这样本地会产生很多commit，这些commit比较散乱，逻辑关联性也不强，甚至有些commit是本地测试用的，有的commit需要拆成两个，有个多个commit可以合并，commit之间顺序需要调换等等，经过这些过程，本地commit可以调整得很有序，而且组织性特别好。<br><a id="more"></a></p>
 <h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>需要开发三个功能function-1、function-2以及function-3，由于自己没有想清楚，开发有点散乱，提交之后的git log如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">8e68ded function-3-all-big</div><div class="line">aad65ef function-2[2/2]</div><div class="line">721d5e9 function-1[2/2]</div><div class="line">8ac73c9 function-2[1/2]</div><div class="line">f1927eb modified properties to local test</div><div class="line">b29c96f function-1[1/2]</div></pre></td></tr></table></figure></p>
@@ -50,9 +48,7 @@
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;git可以让你对本地commit进行顺序调整，优化commit的组织性，然后再进行提交。&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
 &lt;p&gt;以git为首的SVCS现在已经很流行了，目前越来的企业和开源组织都在使用或者迁移到git上，github让git更加出色和流行。每次提到git，都会和SVN进行对比，当然这其中可以对比的因素。我这次主要就可以git可以本地提交的特性讲述如何在push之前对本地的commit进行重组。&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h2 id=&quot;本地commit重组的必要性&quot;&gt;&lt;a href=&quot;#本地commit重组的必要性&quot; class=&quot;headerlink&quot; title=&quot;本地commit重组的必要性&quot;&gt;&lt;/a&gt;本地commit重组的必要性&lt;/h2&gt;&lt;p&gt;在开发过程中，有很多优秀的实践指导着我们，其中有一条是“每次提交一个功能点”，意思是说每次提交应该是一个独立的单元，还有另外一条优秀实践是“频繁提交，小提交”，意思是说要频繁提交代码，并且最好是小的提交。其实这两条都没错，但是总是感觉有点冲突和矛盾。如果想完美做到第一条，那么写代码之前要好好规划，每次提交要修改哪些文件，然后才能一次提交一个完整的单元，但是这么做又会产生大commit，和第二条有冲突。考虑到很难在开发之前，设计那么清楚，就像设计大功能一样，可以边做边重构，甚至是做完重构。&lt;/p&gt;
 &lt;p&gt;所以针对git本地的commit也是一样，可以先比较频繁地执行小提交，这样每个小提交可以达到一个提交一个功能了。这样本地会产生很多commit，这些commit比较散乱，逻辑关联性也不强，甚至有些commit是本地测试用的，有的commit需要拆成两个，有个多个commit可以合并，commit之间顺序需要调换等等，经过这些过程，本地commit可以调整得很有序，而且组织性特别好。&lt;br&gt;
     
