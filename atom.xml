@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.waverley.me/"/>
-  <updated>2017-06-08T13:49:26.000Z</updated>
+  <updated>2017-06-08T13:56:12.000Z</updated>
   <id>http://www.waverley.me/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何查看Linux中进程运行在哪个CPU上</title>
+    <link href="http://www.waverley.me/2017/03/15/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BLinux%E4%B8%AD%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E5%9C%A8%E5%93%AA%E4%B8%AACPU%E4%B8%8A/"/>
+    <id>http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/</id>
+    <published>2017-03-15T12:43:00.000Z</published>
+    <updated>2017-06-08T13:56:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center">C<br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
+
+<p>当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to-CPU亲和性在同一个NUMA节点上调度网络I/O。</p>
+<p>作为性能优化和问题定位的一部分，我们有时需要知道具体进程是运行在哪个CPU核心或者NUMA节点的。</p>
+<p>下面介绍几种方法，可以帮助我们找到一个Linux进程是运行在哪个CPU核心上的。<br><a id="more"></a></p>
+<ol>
+<li>taskset<br>如果一个进程被绑定在特定的CPU，可以使用taskset命令找到这个被绑定的CPU：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p &lt;pid&gt;</div></pre></td></tr></table></figure>
+<p>例如，对于一个PID 5357的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p 5357</div><div class="line">pid 5357&apos;s current affinity list: 5</div></pre></td></tr></table></figure></p>
+<p>命令输出显示这个进程是被绑定到CPU核心5了。<br>然而，如果没有绑定任何CPU，将会看到如下输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pid 5357&apos;s current affinity list: 0-11</div></pre></td></tr></table></figure></p>
+<p>表明这个进程有可能被调度到0-11的任何CPU核心上，这种情况下，taskset将无法判断进程是被运行在哪个CPU上了，只能使用下面的方法。</p>
+<ol>
+<li>ps<br>ps命令能够显示出每个进程/线程被分配的CPU ID(“PSR”列)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ps -o pid,psr,comm -p &lt;pid&gt;</div><div class="line">  PID  PSR COMMAND</div><div class="line">  5357  10 prog</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这个输出表明PID 5357进程（名字为prog）现在是运行在CPU核心10上。如果这个进程未被绑定CPU，则PSR列会根据被分配到的CPU随时间变化的。</p>
+<ol>
+<li>top<br>top命令也可以显示一个进程被分配的CPU。首先，运行top -p PID，然后按f键，并且增加“Last used CPU”列。现在正在使用的CPU核心将会显示在“P”（”PSR”）列下。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ top -p 5357</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://waverley.me/assets/blogImg/linuxc1.jpg" alt="此处输入图片的描述"><br>相对ps命令，top命令的优势是你可以连续监视CPU如何随时间变化的。</p>
+<ol>
+<li>htop<br>还有一个查看进程/现场正在使用的CPU的方法是htop命令。<br>运行htop命令，然后按<f2>键，选中”Columns”，在”Available Columns”下增加”PROCESSOR”。<br>如下图”CPU”列就是进程被调用的CPU ID。<br><img src="http://waverley.me/assets/blogImg/linuxc2.jpg" alt="此处输入图片的描述"></f2></li>
+</ol>
+<p>注意：之前的命令taskset/ps/top被分配CPU核心IDs从0到N-1，然而htop是从1到N。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;C&lt;br&gt;当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？&lt;br&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to-CPU亲和性在同一个NUMA节点上调度网络I/O。&lt;/p&gt;
+&lt;p&gt;作为性能优化和问题定位的一部分，我们有时需要知道具体进程是运行在哪个CPU核心或者NUMA节点的。&lt;/p&gt;
+&lt;p&gt;下面介绍几种方法，可以帮助我们找到一个Linux进程是运行在哪个CPU核心上的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术总结" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="手册速查" scheme="http://www.waverley.me/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/%E6%89%8B%E5%86%8C%E9%80%9F%E6%9F%A5/"/>
+    
+    
+      <category term="Linux" scheme="http://www.waverley.me/tags/Linux/"/>
+    
+      <category term="bash" scheme="http://www.waverley.me/tags/bash/"/>
+    
+  </entry>
   
   <entry>
     <title>如何在C程序中嵌入python代码</title>
@@ -95,9 +151,9 @@
     <link href="http://www.waverley.me/2017/01/30/GIT-%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%AB%AF%E7%9A%84%E6%8F%90%E4%BA%A4/"/>
     <id>http://www.waverley.me/2017/01/30/GIT-修改远端的提交/</id>
     <published>2017-01-30T13:40:00.000Z</published>
-    <updated>2017-06-08T13:39:23.000Z</updated>
+    <updated>2017-06-08T13:51:05.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="blockquote-center">当你不小心，写错了提交的commit/message，该如何处理呢？强大的GIT早已经为你备好了“后悔药”。</blockquote>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center">当你不小心，写错了提交的commit/message，该如何处理呢？<br>强大的GIT早已经为你备好了“后悔药”。</blockquote>
 
 
 
@@ -116,7 +172,7 @@
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;当你不小心，写错了提交的commit/message，该如何处理呢？强大的GIT早已经为你备好了“后悔药”。&lt;/blockquote&gt;
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;当你不小心，写错了提交的commit/message，该如何处理呢？&lt;br&gt;强大的GIT早已经为你备好了“后悔药”。&lt;/blockquote&gt;
 
 
 

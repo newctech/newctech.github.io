@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,bash," />
 
 
 
@@ -90,15 +90,25 @@
 
 
 
-<meta name="description" content="期待即将来临的马代之旅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Waverley">
-<meta property="og:url" content="http://www.waverley.me/tags/手册/index.html">
+<meta name="description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何查看Linux中进程运行在哪个CPU上">
+<meta property="og:url" content="http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="期待即将来临的马代之旅">
+<meta property="og:description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/linuxc1.jpg">
+<meta property="og:image" content="http://waverley.me/assets/blogImg/linuxc2.jpg">
+<meta property="og:updated_time" content="2017-06-08T13:56:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Waverley">
-<meta name="twitter:description" content="期待即将来临的马代之旅">
+<meta name="twitter:title" content="如何查看Linux中进程运行在哪个CPU上">
+<meta name="twitter:description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+<meta name="twitter:image" content="http://waverley.me/assets/blogImg/linuxc1.jpg">
 
 
 
@@ -119,10 +129,10 @@
 
 
 
-  <link rel="canonical" href="http://www.waverley.me/tags/手册/"/>
+  <link rel="canonical" href="http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/"/>
 
 
-  <title> 标签: 手册 | Waverley </title>
+  <title> 如何查看Linux中进程运行在哪个CPU上 | Waverley </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -274,130 +284,236 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        手册
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/30/GIT-修改远端的提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:修改远端的提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-30T21:40:00+08:00"
-              content="2017-01-30" >
-          01-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/16/GIT-重新组织本地提交/" itemprop="url">
-              
-                <span itemprop="name">GIT:重新组织本地提交</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-16T14:40:00+08:00"
-              content="2017-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/04/Jupyter Notebook：交互计算工具/" itemprop="url">
-              
-                <span itemprop="name">Jupyter Notebook：交互计算工具</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-04T00:40:00+08:00"
-              content="2016-09-04" >
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/16/Git入门手册/" itemprop="url">
-              
-                <span itemprop="name">Git入门手册</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-16T14:40:00+08:00"
-              content="2016-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何查看Linux中进程运行在哪个CPU上
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-15T20:43:00+08:00" content="2017-03-15">
+              2017-03-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/手册速查/" itemprop="url" rel="index">
+                    <span itemprop="name">手册速查</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/15/如何查看Linux中进程运行在哪个CPU上/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/如何查看Linux中进程运行在哪个CPU上/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/15/如何查看Linux中进程运行在哪个CPU上/" class="leancloud_visitors" data-flag-title="如何查看Linux中进程运行在哪个CPU上">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">C<br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
+
+<p>当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to-CPU亲和性在同一个NUMA节点上调度网络I/O。</p>
+<p>作为性能优化和问题定位的一部分，我们有时需要知道具体进程是运行在哪个CPU核心或者NUMA节点的。</p>
+<p>下面介绍几种方法，可以帮助我们找到一个Linux进程是运行在哪个CPU核心上的。<br><a id="more"></a></p>
+<ol>
+<li>taskset<br>如果一个进程被绑定在特定的CPU，可以使用taskset命令找到这个被绑定的CPU：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p &lt;pid&gt;</div></pre></td></tr></table></figure>
+<p>例如，对于一个PID 5357的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p 5357</div><div class="line">pid 5357&apos;s current affinity list: 5</div></pre></td></tr></table></figure></p>
+<p>命令输出显示这个进程是被绑定到CPU核心5了。<br>然而，如果没有绑定任何CPU，将会看到如下输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pid 5357&apos;s current affinity list: 0-11</div></pre></td></tr></table></figure></p>
+<p>表明这个进程有可能被调度到0-11的任何CPU核心上，这种情况下，taskset将无法判断进程是被运行在哪个CPU上了，只能使用下面的方法。</p>
+<ol>
+<li>ps<br>ps命令能够显示出每个进程/线程被分配的CPU ID(“PSR”列)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ps -o pid,psr,comm -p &lt;pid&gt;</div><div class="line">  PID  PSR COMMAND</div><div class="line">  5357  10 prog</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这个输出表明PID 5357进程（名字为prog）现在是运行在CPU核心10上。如果这个进程未被绑定CPU，则PSR列会根据被分配到的CPU随时间变化的。</p>
+<ol>
+<li>top<br>top命令也可以显示一个进程被分配的CPU。首先，运行top -p PID，然后按f键，并且增加“Last used CPU”列。现在正在使用的CPU核心将会显示在“P”（”PSR”）列下。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ top -p 5357</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://waverley.me/assets/blogImg/linuxc1.jpg" alt="此处输入图片的描述"><br>相对ps命令，top命令的优势是你可以连续监视CPU如何随时间变化的。</p>
+<ol>
+<li>htop<br>还有一个查看进程/现场正在使用的CPU的方法是htop命令。<br>运行htop命令，然后按<f2>键，选中”Columns”，在”Available Columns”下增加”PROCESSOR”。<br>如下图”CPU”列就是进程被调用的CPU ID。<br><img src="http://waverley.me/assets/blogImg/linuxc2.jpg" alt="此处输入图片的描述"></f2></li>
+</ol>
+<p>注意：之前的命令taskset/ps/top被分配CPU核心IDs从0到N-1，然而htop是从1到N。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/assets/img/wechat-reward.png" alt="威风凛凛 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/assets/img/alipay-reward.png" alt="威风凛凛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/bash/" rel="tag">#bash</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/04/如何在C程序中嵌入python代码/" rel="next" title="如何在C程序中嵌入python代码">
+                <i class="fa fa-chevron-left"></i> 如何在C程序中嵌入python代码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/15/如何查看Linux中进程运行在哪个CPU上/"
+     data-title="如何查看Linux中进程运行在哪个CPU上"
+     data-content=""
+     data-url="http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -405,6 +521,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/15/如何查看Linux中进程运行在哪个CPU上/"
+           data-title="如何查看Linux中进程运行在哪个CPU上" data-url="http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -424,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/img/waverley.png"
@@ -520,6 +653,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -623,6 +767,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
