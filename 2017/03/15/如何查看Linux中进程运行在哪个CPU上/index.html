@@ -90,24 +90,24 @@
 
 
 
-<meta name="description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+<meta name="description" content="当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
 
-当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何查看Linux中进程运行在哪个CPU上">
 <meta property="og:url" content="http://www.waverley.me/2017/03/15/如何查看Linux中进程运行在哪个CPU上/index.html">
 <meta property="og:site_name" content="Waverley">
-<meta property="og:description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+<meta property="og:description" content="当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
 
-当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/linuxc1.jpg">
 <meta property="og:image" content="http://waverley.me/assets/blogImg/linuxc2.jpg">
-<meta property="og:updated_time" content="2017-06-08T13:56:12.000Z">
+<meta property="og:updated_time" content="2017-06-08T14:00:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何查看Linux中进程运行在哪个CPU上">
-<meta name="twitter:description" content="C当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
+<meta name="twitter:description" content="当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？
 
-当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-t">
+当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to">
 <meta name="twitter:image" content="http://waverley.me/assets/blogImg/linuxc1.jpg">
 
 
@@ -392,31 +392,21 @@
       
 
       
-        <blockquote class="blockquote-center">C<br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
+        <blockquote class="blockquote-center"><br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
 
 <p>当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to-CPU亲和性在同一个NUMA节点上调度网络I/O。</p>
 <p>作为性能优化和问题定位的一部分，我们有时需要知道具体进程是运行在哪个CPU核心或者NUMA节点的。</p>
 <p>下面介绍几种方法，可以帮助我们找到一个Linux进程是运行在哪个CPU核心上的。<br><a id="more"></a></p>
-<ol>
-<li>taskset<br>如果一个进程被绑定在特定的CPU，可以使用taskset命令找到这个被绑定的CPU：</li>
-</ol>
+<h2 id="一、taskset"><a href="#一、taskset" class="headerlink" title="一、taskset"></a>一、taskset</h2><p>如果一个进程被绑定在特定的CPU，可以使用taskset命令找到这个被绑定的CPU：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p &lt;pid&gt;</div></pre></td></tr></table></figure>
 <p>例如，对于一个PID 5357的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ taskset -c -p 5357</div><div class="line">pid 5357&apos;s current affinity list: 5</div></pre></td></tr></table></figure></p>
 <p>命令输出显示这个进程是被绑定到CPU核心5了。<br>然而，如果没有绑定任何CPU，将会看到如下输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pid 5357&apos;s current affinity list: 0-11</div></pre></td></tr></table></figure></p>
 <p>表明这个进程有可能被调度到0-11的任何CPU核心上，这种情况下，taskset将无法判断进程是被运行在哪个CPU上了，只能使用下面的方法。</p>
-<ol>
-<li>ps<br>ps命令能够显示出每个进程/线程被分配的CPU ID(“PSR”列)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ps -o pid,psr,comm -p &lt;pid&gt;</div><div class="line">  PID  PSR COMMAND</div><div class="line">  5357  10 prog</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="二、ps"><a href="#二、ps" class="headerlink" title="二、ps"></a>二、ps</h2><p>ps命令能够显示出每个进程/线程被分配的CPU ID(“PSR”列)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ps -o pid,psr,comm -p &lt;pid&gt;</div><div class="line">  PID  PSR COMMAND</div><div class="line">  5357  10 prog</div></pre></td></tr></table></figure></p>
 <p>这个输出表明PID 5357进程（名字为prog）现在是运行在CPU核心10上。如果这个进程未被绑定CPU，则PSR列会根据被分配到的CPU随时间变化的。</p>
-<ol>
-<li>top<br>top命令也可以显示一个进程被分配的CPU。首先，运行top -p PID，然后按f键，并且增加“Last used CPU”列。现在正在使用的CPU核心将会显示在“P”（”PSR”）列下。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ top -p 5357</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="三、top"><a href="#三、top" class="headerlink" title="三、top"></a>三、top</h2><p>top命令也可以显示一个进程被分配的CPU。首先，运行top -p PID，然后按f键，并且增加“Last used CPU”列。现在正在使用的CPU核心将会显示在“P”（”PSR”）列下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ top -p 5357</div></pre></td></tr></table></figure></p>
 <p><img src="http://waverley.me/assets/blogImg/linuxc1.jpg" alt="此处输入图片的描述"><br>相对ps命令，top命令的优势是你可以连续监视CPU如何随时间变化的。</p>
-<ol>
-<li>htop<br>还有一个查看进程/现场正在使用的CPU的方法是htop命令。<br>运行htop命令，然后按<f2>键，选中”Columns”，在”Available Columns”下增加”PROCESSOR”。<br>如下图”CPU”列就是进程被调用的CPU ID。<br><img src="http://waverley.me/assets/blogImg/linuxc2.jpg" alt="此处输入图片的描述"></f2></li>
-</ol>
+<h2 id="四、htop"><a href="#四、htop" class="headerlink" title="四、htop"></a>四、htop</h2><p>还有一个查看进程/现场正在使用的CPU的方法是htop命令。<br>运行htop命令，然后按<f2>键，选中”Columns”，在”Available Columns”下增加”PROCESSOR”。<br>如下图”CPU”列就是进程被调用的CPU ID。<br><img src="http://waverley.me/assets/blogImg/linuxc2.jpg" alt="此处输入图片的描述"></f2></p>
 <p>注意：之前的命令taskset/ps/top被分配CPU核心IDs从0到N-1，然而htop是从1到N。</p>
 
       
@@ -660,7 +650,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、taskset"><span class="nav-number">1.</span> <span class="nav-text">一、taskset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、ps"><span class="nav-number">2.</span> <span class="nav-text">二、ps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、top"><span class="nav-number">3.</span> <span class="nav-text">三、top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、htop"><span class="nav-number">4.</span> <span class="nav-text">四、htop</span></a></li></ol></div>
             
           </div>
         </section>

@@ -388,7 +388,7 @@
 
       
         
-          <blockquote class="blockquote-center">C<br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
+          <blockquote class="blockquote-center"><br>当Linux进程运行在多核系统中时，我们如何才能找出这个进程到底是运行在哪个CPU上？<br></blockquote>
 
 <p>当你在一个多核NUMA处理器上运行一个高性能的应用程序或者高负载网络程序时，CPU/memory是一个限制它们性能的重要因素。在相同的NUMA节点调度处理器可以减少访问远程memory的性能降低。Intel的Sandy Bridge处理器，具有一个集成的PCIe控制器，你可以利用NIC card的PCI-to-CPU亲和性在同一个NUMA节点上调度网络I/O。</p>
 <p>作为性能优化和问题定位的一部分，我们有时需要知道具体进程是运行在哪个CPU核心或者NUMA节点的。</p>
